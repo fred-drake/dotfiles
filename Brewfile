@@ -21,6 +21,8 @@ brew "clusterctl"
 brew "curl"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Modern replacement for 'ls'
@@ -93,8 +95,6 @@ cask "todoist"
 cask "tunnelblick"
 # 3D printer and slicing GUI
 cask "ultimaker-cura"
-# Virtualizer for x86 hardware
-cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
