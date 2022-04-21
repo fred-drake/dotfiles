@@ -24,6 +24,7 @@ symlink ".p10k.zsh"
 symlink ".finicky.js"
 symlink ".gitignore_global"
 symlink ".hgignore_global"
+symlink ".fzf-key-bindings.zsh"
 
 privlink ".ssh"
 privlink ".talos"
