@@ -7,8 +7,8 @@ tap "homebrew/services"
 tap "hudochenkov/sshpass"
 tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws-sam-cli"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
 # Platform built on V8 to build network applications
 brew "node"
 # Secure and free password manager for all of your devices
@@ -31,14 +31,16 @@ brew "exa"
 brew "fzf"
 # Distributed revision control system
 brew "git"
-# Toolkit for embedding hypervisor capabilities in your application
-brew "hyperkit"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws/tap/aws-sam-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
@@ -51,6 +53,10 @@ cask "balenaetcher"
 cask "bartender"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
+# Tool to customize input devices and automate computer systems
+cask "bettertouchtool"
+# Desktop password and login vault
+cask "bitwarden"
 # GUI app for Homebrew
 cask "cakebrew"
 # E-books management software
@@ -71,12 +77,16 @@ cask "iterm2"
 cask "itsycal"
 # Open-source Markdown editor
 cask "macdown"
+# Open-source Dropbox client
+cask "maestral"
 # Visual diff and merge tool
 cask "meld"
 # Online collaborative whiteboard platform
 cask "miro"
 # GameStream client
 cask "moonlight"
+# Calculator and converter application
+cask "numi"
 # HTTP client that helps testing and describing APIs
 cask "paw"
 # Home media player
@@ -85,10 +95,16 @@ cask "plex"
 cask "postman"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 # Graphical client for Git version control
 cask "sourcetree"
+# Music streaming service
+cask "spotify"
 # A CLI for out-of-band management of Kubernetes nodes created by Talos
 cask "talosctl"
+# Unpacks archive files
+cask "the-unarchiver"
 # To-do list
 cask "todoist"
 # Free and open-source OpenVPN client
@@ -103,3 +119,5 @@ cask "vlc"
 cask "vmware-fusion"
 # Remote desktop application focusing on security
 cask "vnc-viewer"
+# Compatibility layer to run Windows applications
+cask "wine-stable"
