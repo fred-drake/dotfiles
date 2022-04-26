@@ -25,10 +25,6 @@ module.exports = {
       browser: "Safari"
     },
     {
-      match: /www.notion.so/,
-      browser: "Safari"
-    },
-    {
       match: /apple.com/,
       browser: "Safari"
     },
