@@ -9,8 +9,10 @@ tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# Platform built on V8 to build network applications
-brew "node"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws-sam-cli"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -39,8 +41,6 @@ brew "stow"
 brew "switchaudio-osx"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws/tap/aws-sam-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab

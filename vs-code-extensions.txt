@@ -9,5 +9,6 @@ ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 rvest.vs-code-prettier-eslint
 Shan.code-settings-sync
+signageos.signageos-vscode-sops
 vscode-icons-team.vscode-icons
 yzhang.markdown-all-in-one
