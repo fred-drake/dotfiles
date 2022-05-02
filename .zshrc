@@ -12,6 +12,8 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/fdrake/.oh-my-zsh
 
+export HOMEBREW_PREFIX=$(brew --prefix)
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -124,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source ~/.profile
-export PATH="/usr/local/homebrew/bin:/usr/local/opt/libpcap/bin:$PATH:/Users/fdrake/bin"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/opt/libpcap/bin:$PATH:/Users/fdrake/bin"
 alias dnsflush="sudo killall -HUP mDNSResponder"
 alias flushdns="dnsflush"
 alias restartkiosk='ssh kiosk "sudo systemctl stop kiosk.service && sudo systemctl start kiosk.service"'
@@ -152,7 +154,7 @@ alias d3='docker -H ssh://docker3'
 alias d5='docker -H ssh://docker5'
 alias d7='docker -H ssh://docker7'
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PREFIX/bin/python3
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -165,7 +167,6 @@ source <(helm completion zsh)
 #export POWERLEVEL9K_INSTANT_PROMPT=off
 #neofetch
 
-export HOMEBREW_PREFIX=/usr/local/bin/homebrew
 eval "$(direnv hook zsh)"
 export PATH="/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool:$PATH"
 

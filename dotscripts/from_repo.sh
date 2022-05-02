@@ -15,6 +15,7 @@ tar xf ~/dotfiles/private.tar.gz -C ~/dotfiles
 rm -f ~/dotfiles/private.tar.gz
 
 echo "Building symbolic links to files..."
+symlink ".zprofile"
 symlink ".zshrc"
 symlink ".fzf.zsh"
 symlink ".gitconfig"
