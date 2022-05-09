@@ -39,6 +39,8 @@ brew "gnupg"
 brew "helm"
 # Portable library for network traffic capture
 brew "libpcap"
+# Editor of encrypted files
+brew "sops"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Change macOS audio source from the command-line
