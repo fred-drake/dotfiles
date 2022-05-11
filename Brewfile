@@ -15,10 +15,14 @@ brew "awscli"
 brew "node"
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
+# GNU compiler collection
+brew "gcc"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle
 brew "clusterctl"
+# Open source suite of directory software
+brew "openldap"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Secure runtime for JavaScript and TypeScript
@@ -39,12 +43,16 @@ brew "gnupg"
 brew "helm"
 # Portable library for network traffic capture
 brew "libpcap"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
 # Editor of encrypted files
 brew "sops"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
+# Tool to build, change, and version infrastructure
+brew "terraform"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
 # AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
