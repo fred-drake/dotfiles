@@ -53,6 +53,8 @@ brew "stow"
 brew "switchaudio-osx"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Process YAML documents from the CLI
+brew "yq"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
 # AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
