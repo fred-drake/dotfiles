@@ -1,0 +1,6 @@
+[DEFAULT]
+user=ocid1.user.oc1..aaaaaaaav3nni4k3vjhg2g2gadonvss6lw3s3ru6tpek65fsccbrvlutzs7q
+fingerprint=db:b5:24:7a:1b:e2:1c:ba:96:e4:2c:13:b2:c1:b6:f6
+tenancy=ocid1.tenancy.oc1..aaaaaaaakoavgualzziieoh3ilfga45fbexmgxolitlx32zb2f3tkguqe7ea
+region=us-ashburn-1
+key_file=/Users/fdrake/.ssh/oracle_cloud_key.pem
