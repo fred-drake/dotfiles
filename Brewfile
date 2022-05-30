@@ -1,4 +1,5 @@
 tap "aws/tap"
+tap "buo/cask-upgrade"
 tap "drone/drone"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -59,6 +60,12 @@ brew "stow"
 brew "switchaudio-osx"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Simplified and community-driven man pages
+brew "tldr"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Process YAML documents from the CLI
 brew "yq"
 # Fork of youtube-dl with additional features and fixes
@@ -77,8 +84,8 @@ cask "bartender"
 cask "beekeeper-studio"
 # Tool to customize input devices and automate computer systems
 cask "bettertouchtool"
-# Desktop password and login vault
-cask "bitwarden"
+# Web browser focusing on privacy
+cask "brave-browser"
 # GUI app for Homebrew
 cask "cakebrew"
 # E-books management software
@@ -89,6 +96,10 @@ cask "discord"
 cask "drawio"
 # Utility for customizing which browser to start
 cask "finicky"
+# Screen color temperature controller
+cask "flux"
+# Free and open-source image editor
+cask "gimp"
 # Game client
 cask "gog-galaxy"
 # Web browser
@@ -141,8 +152,12 @@ cask "vlc"
 cask "vmware-fusion"
 # Remote desktop application focusing on security
 cask "vnc-viewer"
+# Desktop client for WhatsApp
+cask "whatsapp"
 # Compatibility layer to run Windows applications
 cask "wine-stable"
+# Video communication and virtual meeting platform
+cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Battery Health", id: 490192174
 mas "Be Focused", id: 973134470
