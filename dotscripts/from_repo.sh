@@ -44,4 +44,4 @@ echo "Install the brew bundle..."
 brew bundle --file ~/dotfiles/Brewfile
 
 echo "Installing VS Code extensions....."
-cat ~/dotfiles/vs-code-extensions.txt | xargs -L 1 code --install-extension --force
+cat ~/dotfiles/vs-code-extensions.txt | xargs -L 1 code --install-extension
