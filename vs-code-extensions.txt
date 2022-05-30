@@ -9,7 +9,6 @@ ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
 rvest.vs-code-prettier-eslint
-Shan.code-settings-sync
 signageos.signageos-vscode-sops
 signageos.signageos-vscode-sops-beta
 vscode-icons-team.vscode-icons
