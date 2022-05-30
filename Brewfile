@@ -9,6 +9,10 @@ tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws-sam-cli"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Platform built on V8 to build network applications
@@ -41,10 +45,12 @@ brew "git"
 brew "gnupg"
 # Kubernetes package manager
 brew "helm"
+# Utility to create k3s clusters on any local or remote VM
+brew "k3sup"
 # Portable library for network traffic capture
 brew "libpcap"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
+# Mac App Store command-line interface
+brew "mas"
 # Editor of encrypted files
 brew "sops"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -57,8 +63,6 @@ brew "terraform"
 brew "yq"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws/tap/aws-sam-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
@@ -139,3 +143,27 @@ cask "vmware-fusion"
 cask "vnc-viewer"
 # Compatibility layer to run Windows applications
 cask "wine-stable"
+mas "Amphetamine", id: 937984704
+mas "Battery Health", id: 490192174
+mas "Be Focused", id: 973134470
+mas "Bitwarden", id: 1352778147
+mas "Disk Diag", id: 672206759
+mas "GarageBand", id: 682658836
+mas "HP Easy Scan", id: 967004861
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "MacFamilyTree 9", id: 1458866808
+mas "MenubarClock", id: 492167985
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft To Do", id: 1274495053
+mas "Notability", id: 360593530
+mas "Numbers", id: 409203825
+mas "OneDrive", id: 823766827
+mas "Pages", id: 409201541
+mas "Reeder", id: 1449412482
+mas "Slack", id: 803453959
+mas "Trello", id: 1278508951
+mas "Valet Car Control", id: 1438609932
+mas "VMware Remote Console", id: 1230249825
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
