@@ -1,5 +1,6 @@
 # encoding: utf-8
 from __future__ import unicode_literals, print_function
+from distutils.util import strtobool
 
 import os
 import sys
@@ -23,9 +24,14 @@ YOUTUBE_WATCH_URL = 'https://youtube.com/watch?v='
 METACRITIC_SEARCH_URL = 'https://metacritic.com/search/'
 ROTTEN_TOMATOES_SEARCH_URL = 'https://rottentomatoes.com/search/?search='
 LETTERBOXD_URL = 'https://letterboxd.com/imdb/'
+MOVIECHAT_URL = 'https://moviechat.org/'
 CACHEDIR = os.path.expanduser(
     '~/Library/Caches/com.runningwithcrayons.Alfred/Workflow Data/com.mcknight.movies')
 HTML_SUMMARY_FILE = os.path.join(CACHEDIR, "item.html")
+
+INCLUDE_LETTERBOXD = bool(strtobool(os.environ['include_letterboxd']))
+INCLUDE_JUSTWATCH = bool(strtobool(os.environ['include_justwatch']))
+INCLUDE_MOVIECHAT = bool(strtobool(os.environ['include_moviechat']))
 
 if not os.path.exists(CACHEDIR):
     os.makedirs(CACHEDIR)
@@ -107,7 +113,7 @@ def get_tmdb_info(item_type, item_id, api_key):
     elif item_type == 't':
         url += 'tv/' + item_id
     params = dict(
-        api_key=api_key, language='en', append_to_response='videos,external_ids,watch/providers')
+        api_key=api_key, language='en', append_to_response='videos,external_ids,watch/providers,releases,content_ratings')
 
     return get_json(url, params)
 
@@ -139,7 +145,7 @@ def show_item_info(item, media_type):
         title += ' (' + item[release_date_key][:4] + ')'
 
     items.append({"title": title,
-                  "subtitle": get_subtitle(omdb_info),
+                  "subtitle": get_subtitle(item, omdb_info, media_type),
                   "valid": True,
                   # icon : "poster.jpg",
                   "quicklookurl": "file://" + urllib.request.pathname2url(HTML_SUMMARY_FILE)})
@@ -226,37 +232,50 @@ def show_item_info(item, media_type):
                       "arg": search_url})
 
     # Letterboxd
-    search_url = LETTERBOXD_URL + omdb_info['imdbID']
-    all_search_sites.append(search_url)
-    items.append({"title": 'Letterboxd',
-                  "subtitle": f"View '{item[title_key]}' on Letterboxd",
-                  "icon": {"path": 'img/letterboxd.png'},
-                  "valid": True,
-                  "arg": search_url})
-
-    # JustWatch
-    locale = os.environ['locale']
-    if locale in item['watch/providers']['results'].keys():
-        watchproviders = item['watch/providers']['results'][locale]
-        search_url = watchproviders['link']
-        justwatchstring = ''
-        if 'flatrate' in watchproviders.keys():
-            justwatchstring += 'Stream: ' + \
-                watchproviders['flatrate'][0]['provider_name'] + ' | '
-        if 'buy' in watchproviders.keys():
-            justwatchstring += 'Buy: ' + \
-                watchproviders['buy'][0]['provider_name'] + ' | '
-        if 'rent' in watchproviders.keys():
-            justwatchstring += 'Rent: ' + \
-                watchproviders['rent'][0]['provider_name'] + ' | '
-        justwatchstring = justwatchstring[:-3]  # remove first and last pipe
-
+    if INCLUDE_LETTERBOXD:
+        search_url = LETTERBOXD_URL + omdb_info['imdbID']
         all_search_sites.append(search_url)
-        items.append({"title": 'JustWatch',
-                      "subtitle": justwatchstring,
-                      "icon": {"path": 'img/justwatch.png'},
+        items.append({"title": 'Letterboxd',
+                      "subtitle": f"View '{item[title_key]}' on Letterboxd",
+                      "icon": {"path": 'img/letterboxd.png'},
                       "valid": True,
                       "arg": search_url})
+
+    # MovieChat
+    if INCLUDE_MOVIECHAT:
+        search_url = MOVIECHAT_URL + omdb_info['imdbID']
+        all_search_sites.append(search_url)
+        items.append({"title": 'MovieChat',
+                      "subtitle": f"View '{item[title_key]}' on MovieChat",
+                      "icon": {"path": 'img/moviechat.png'},
+                      "valid": True,
+                      "arg": search_url})
+
+    # JustWatch
+    if INCLUDE_JUSTWATCH:
+        locale = os.environ['locale']
+        if locale in item['watch/providers']['results'].keys():
+            watchproviders = item['watch/providers']['results'][locale]
+            search_url = watchproviders['link']
+            justwatchstring = ''
+            if 'flatrate' in watchproviders.keys():
+                justwatchstring += 'Stream: ' + \
+                    watchproviders['flatrate'][0]['provider_name'] + ' | '
+            if 'buy' in watchproviders.keys():
+                justwatchstring += 'Buy: ' + \
+                    watchproviders['buy'][0]['provider_name'] + ' | '
+            if 'rent' in watchproviders.keys():
+                justwatchstring += 'Rent: ' + \
+                    watchproviders['rent'][0]['provider_name'] + ' | '
+            # remove first and last pipe
+            justwatchstring = justwatchstring[:-3]
+
+            all_search_sites.append(search_url)
+            items.append({"title": 'JustWatch',
+                          "subtitle": justwatchstring,
+                          "icon": {"path": 'img/justwatch.png'},
+                          "valid": True,
+                          "arg": search_url})
 
     if item['videos']['results']:
         trailer = None
@@ -291,12 +310,12 @@ def show_item_info(item, media_type):
                   "subtitle": 'Actors',
                   "icon": {"path": ICON_GROUP}})
 
-    generate_item_html(omdb_info, item)
+    generate_item_html(omdb_info, item, media_type)
 
     return
 
 
-def generate_item_html(omdb_info, tmdb_info):
+def generate_item_html(omdb_info, tmdb_info, media_type):
     item_template = Template(
         filename='templates/media.html', output_encoding='utf-8')
 
@@ -313,7 +332,7 @@ def generate_item_html(omdb_info, tmdb_info):
         release_date=omdb_info['Released'],
         director=omdb_info['Director'],
         actors=omdb_info['Actors'],
-        genre=get_subtitle(omdb_info)
+        genre=get_subtitle(tmdb_info, omdb_info, media_type)
     )
     with open(HTML_SUMMARY_FILE, "wb") as text_file:
         text_file.write(html)
@@ -321,17 +340,28 @@ def generate_item_html(omdb_info, tmdb_info):
     return
 
 
-def get_subtitle(omdb_info):
+def get_subtitle(tmdb_info, omdb_info, media_type):
+    locale = os.environ['locale']
+    certification = omdb_info['Rated']
+    if media_type == 'movie' and 'releases' in tmdb_info.keys():
+        for release in tmdb_info['releases']['countries']:
+            if release['iso_3166_1'] == locale:
+                certification = release['certification']
+                break
+    elif media_type == 'tv' and 'content_ratings' in tmdb_info.keys():
+        for release in tmdb_info['content_ratings']['results']:
+            if release['iso_3166_1'] == locale:
+                certification = release['rating']
+                break
     subtitleItems = []
     if omdb_info['Runtime'] != 'N/A':
         subtitleItems.append(omdb_info['Runtime'])
     if omdb_info['Genre'] != 'N/A':
         subtitleItems.append(omdb_info['Genre'])
-    if omdb_info['Rated'] != 'N/A':
-        rating_string = omdb_info['Rated']
-        if "rated" not in rating_string.lower():
-            rating_string = 'Rated ' + rating_string
-        subtitleItems.append(rating_string)
+    if certification != 'N/A':
+        if "rated" not in certification.lower():
+            certification = 'Rated ' + certification
+        subtitleItems.append(certification)
     return ' \u2022 '.join(subtitleItems)
 
 

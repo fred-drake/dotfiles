@@ -44,6 +44,7 @@ echo "Install the brew bundle..."
 brew bundle --file ~/dotfiles/Brewfile
 
 echo "Install Alfred workflows..."
+rm -rf ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows
 cp -a ~/dotfiles/alfred/workflows ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences
 
 echo "Installing VS Code extensions....."
