@@ -10,10 +10,6 @@ tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws-sam-cli"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Platform built on V8 to build network applications
@@ -42,6 +38,8 @@ brew "exa"
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# Alternative to top/htop
+brew "glances"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Kubernetes package manager
@@ -52,6 +50,8 @@ brew "k3sup"
 brew "libpcap"
 # Mac App Store command-line interface
 brew "mas"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
 # Editor of encrypted files
 brew "sops"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -70,6 +70,8 @@ brew "tree"
 brew "yq"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws/tap/aws-sam-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab

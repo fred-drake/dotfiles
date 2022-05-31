@@ -6,6 +6,9 @@ code --list-extensions > ~/dotfiles/vs-code-extensions.txt
 echo "Exporting homebrew package list..."
 brew bundle dump --describe --file ~/dotfiles/Brewfile --force
 
+echo "Exporting Alfred workflows..."
+cp -a ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows ~/dotfiles/alfred
+
 echo "Packaging and encrypting private files archive..."
 cd ~/dotfiles
 tar czf private.tar.gz private/
