@@ -43,5 +43,10 @@ echo "Install homebrew if it doesn't exist..."
 echo "Install the brew bundle..."
 brew bundle --file ~/dotfiles/Brewfile
 
+echo "Install Alfred workflows..."
+[ ! -L ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows ] && \
+	rm -rf ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows && \
+	ln -s ~/dotfiles/alfred/workflows ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences
+
 echo "Installing VS Code extensions....."
 cat ~/dotfiles/vs-code-extensions.txt | xargs -L 1 code --install-extension
