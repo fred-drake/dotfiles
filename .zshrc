@@ -150,9 +150,9 @@ alias dhcp_update='cd /Users/fdrake/Source/github/fred-drake/infrastructure; ans
 alias dl='docker -H ssh://larussa'
 alias d1='docker -H ssh://docker1'
 alias d2='docker -H ssh://docker2'
-alias d3='docker -H ssh://docker3'
+alias dn8='docker -H ssh://nuc8'
 alias d5='docker -H ssh://docker5'
-alias d7='docker -H ssh://docker7'
+alias dn9='docker -H ssh://nuc9'
 
 export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PREFIX/bin/python3
 
