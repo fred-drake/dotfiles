@@ -13,12 +13,12 @@ module.exports = {
       browser: "Miro"
     },
     {
-      match: /theoremco.slack.com/,
-      browser: "Safari"
+      match: /meet.google.com/,
+      browser: "Google Chrome"
     },
     {
       match: /calendar.google.com/,
-      browser: "Safari"
+      browser: "Google Chrome"
     },
     {
       match: /theoremone.okta.com/,
