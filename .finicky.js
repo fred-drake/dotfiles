@@ -40,6 +40,10 @@ module.exports = {
       match: /apple.slack.com/,
       browser: "Safari"
     },
+    {
+      match: /apple.box.com/,
+      browser: "Safari"
+    },
   ],
   defaultBrowser: "Brave Browser"
 }
