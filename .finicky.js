@@ -21,6 +21,10 @@ module.exports = {
       browser: "Google Chrome"
     },
     {
+      match: /notion.so\/theoremone/,
+      browser: "Google Chrome"
+    },
+    {
       match: /theoremone.okta.com/,
       browser: "Safari"
     },
