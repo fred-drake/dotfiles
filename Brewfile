@@ -10,10 +10,6 @@ tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws-sam-cli"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Platform built on V8 to build network applications
@@ -52,16 +48,22 @@ brew "gnupg"
 brew "helm"
 # Utility to create k3s clusters on any local or remote VM
 brew "k3sup"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Portable library for network traffic capture
 brew "libpcap"
 # Mac App Store command-line interface
 brew "mas"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
 # Editor of encrypted files
 brew "sops"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
+# User interface to the TELNET protocol
+brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
 # Programmatically correct mistyped console commands
@@ -70,10 +72,16 @@ brew "thefuck"
 brew "tldr"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Internet file retriever
+brew "wget"
 # Process YAML documents from the CLI
 brew "yq"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws/tap/aws-sam-cli"
+# A Zsh Theme
+brew "romkatv/powerlevel10k/powerlevel10k"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
@@ -116,6 +124,8 @@ cask "itsycal"
 cask "macdown"
 # Open-source Dropbox client
 cask "maestral"
+# Shows the next meeting in the menu bar
+cask "meetingbar"
 # Visual diff and merge tool
 cask "meld"
 # Online collaborative whiteboard platform
@@ -124,6 +134,10 @@ cask "miro"
 cask "moonlight"
 # Calculator and converter application
 cask "numi"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Play PC games and connect with your friends
+cask "origin"
 # HTTP client that helps testing and describing APIs
 cask "paw"
 # Home media player
@@ -138,6 +152,8 @@ cask "rectangle"
 cask "sourcetree"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
 # A CLI for out-of-band management of Kubernetes nodes created by Talos
 cask "talosctl"
 # Unpacks archive files

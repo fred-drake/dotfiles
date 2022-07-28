@@ -6,9 +6,8 @@ code --list-extensions > ~/dotfiles/vs-code-extensions.txt
 echo "Exporting homebrew package list..."
 brew bundle dump --describe --file ~/dotfiles/Brewfile --force
 
-echo "Exporting Alfred workflows..."
-rm -rf ~/dotfiles/alfred/workflows
-cp -a ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows ~/dotfiles/alfred
+echo "Syncing application support data with NAS..."
+rsync -av ~/Library/Application\ Support/* "larussa:/mnt/user/appdata/mac_config/fred/ApplicationSupport/"
 
 echo "Packaging and encrypting private files archive..."
 cd ~/dotfiles

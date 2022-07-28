@@ -10,7 +10,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:"/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool":$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/fdrake/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 export HOMEBREW_PREFIX=$(brew --prefix)
 
@@ -18,7 +18,8 @@ export HOMEBREW_PREFIX=$(brew --prefix)
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="eastwood"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -92,7 +93,6 @@ plugins=(
   dirhistory
   docker
   docker-compose
-  clipboard
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -126,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source ~/.profile
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/opt/libpcap/bin:$PATH:/Users/fdrake/bin"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/opt/libpcap/bin:$PATH:$HOME/bin"
 alias dnsflush="sudo killall -HUP mDNSResponder"
 alias flushdns="dnsflush"
 alias restartkiosk='ssh kiosk "sudo systemctl stop kiosk.service && sudo systemctl start kiosk.service"'
@@ -140,12 +140,12 @@ alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chro
 alias kdf='kubectl delete --grace-period=0 --force'
 alias kdrain='kubectl drain --ignore-daemonsets --delete-emptydir-data'
 alias hung-ns='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n'
-alias cdinfra='cd /Users/fdrake/Source/github/fred-drake/infrastructure'
-alias cdgh='cd /Users/fdrake/Source/github/fred-drake'
+alias cdinfra='cd ~/Source/github/fred-drake/infrastructure'
+alias cdgh='cd ~/Source/github/fred-drake'
 #alias kresources='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n'
 
-alias dns_update='cd /Users/fdrake/Source/github/fred-drake/infrastructure; ansible-playbook ansible/playbooks/dns_update.yml'
-alias dhcp_update='cd /Users/fdrake/Source/github/fred-drake/infrastructure; ansible-playbook ansible/playbooks/dhcp_update.yml'
+alias dns_update='cd ~/Source/github/fred-drake/infrastructure; ansible-playbook ansible/playbooks/dns_update.yml'
+alias dhcp_update='cd ~/Source/github/fred-drake/infrastructure; ansible-playbook ansible/playbooks/dhcp_update.yml'
 
 alias dl='docker -H ssh://larussa'
 alias d1='docker -H ssh://docker1'
