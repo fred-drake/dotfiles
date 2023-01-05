@@ -1,0 +1,15 @@
+[core]
+	excludesfile = /Volumes/External/Users/fdrake/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = ~/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Fred Drake
+	email = fred.drake@gmail.com
+[commit]
+	template = /Users/fdrake/.stCommitMsg
+[init]
+	defaultBranch = master

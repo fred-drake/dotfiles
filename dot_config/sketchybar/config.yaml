@@ -1,0 +1,507 @@
+#
+# Sketchybar YAML configuration
+#
+
+# Default padding that's set throughout the document
+.default_padding: &default_padding 3
+.default_symbol_font: &default_symbol_font "MesloLGS NF:Bold:20.0"
+.default_text_font: &default_text_font "SF Mono Nerd Font:Regular:15.0"
+
+# Color aliases
+.black: &black "0xff181926"
+.white: &white "0xffcad3f5"
+.red: &red "0xffed8796"
+.green: &green "0xffa6da95"
+.blue: &blue "0xff8aadf4"
+.yellow: &yellow "0xffeed49f"
+.orange: &orange "0xfff5a97f"
+.magenta: &magenta "0xfff9a0f9"
+.grey: &grey "0xff939ab7"
+.transparent: &transparent "0x00000000"
+.bracket_color: &bracket_color "0xff3c3e4f"
+
+# Settings for the bar itself.
+bar:
+  height: 39
+  color: 0xcc24273a
+  shadow: "on"
+  position: top
+  sticky: "on"
+  padding_left: 8
+  padding_right: 2
+  corner_radius: 9
+  y_offset: 3
+  margin: 5
+  blur_radius: 20
+  notch_width: 0
+
+# Default settings that get defined in sketchybar.
+default:
+  updates: when_shown
+  icon:
+    font: *default_symbol_font
+    color: *white
+    padding_left: *default_padding
+    padding_right: *default_padding
+  label:
+    font: *default_text_font
+    color: *white
+    padding_left: *default_padding
+    padding_right: *default_padding 
+  background:
+    padding_left: *default_padding
+    padding_right: *default_padding
+    height: 26
+    corner_radius: 9
+  popup:
+    background:
+      border_width: 2
+      corner_radius: 11
+      border_color: *white
+      color: *black
+      shadow:
+        drawing: "on"
+
+# Each of the items that populate the bar.
+#
+# Settings under the "args" are dynamically built
+# into the settings for each module, allowing you to add/remove/modify look, feel and content
+# without changing code.  The "icon.symbol" gets translated to sketchybar's "icon", and
+# "label.content" translates to sketchybar's "label".  All others are blindly added to the
+# settings.
+#
+# Most of these items also have bracket modules that can optionally be drawn in.  These can give
+# a nice contrast and separation between items, especially if your bar becomes cluttered.
+item:
+
+  # The apple logo that we all know and love.  In my case, it is purely aesthetic.
+  apple:
+    position: left
+    args:
+      apple:
+        icon:
+          symbol:                                                                     
+          font: *default_symbol_font
+          color: *green
+        background:
+          padding_right: 10
+        label:
+          drawing: off
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: off
+
+  # The amount of charge remaining on the battery.
+  battery:
+    position: right
+    args:
+      icon:
+        symbol: 
+      update_freq: 3
+
+  # Displays the application name of the window with the current focus.
+  front_app:
+    position: left
+    args:
+      front_app:
+        icon:
+          symbol: 﩯
+          color: *orange
+          drawing: on
+        background:
+          padding_left: 10
+          padding_right: 10
+        label:
+          color: *white
+        associated_display: active
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on
+
+  # A graphical representation of the different screen spaces open.  Clicking
+  # will send you to that space.  Right-clicking will close the space.  Clicking
+  # the "greater than" icon next to the spaces in the focused window will create
+  # a space.
+  spaces:
+    position: left
+
+    # You can leave these as numbered, or use your own nerd font icon to represent
+    # that space's theme.
+    space_icons:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+      - "11"
+      - "12"
+      - "13"
+      - "14"
+      - "15"
+    args:
+      space:
+        icon:
+          padding_left: 10
+          padding_right: 15
+          highlight_color: *magenta
+          font: MesloLGS NF:Bold:13.0
+        background:
+          padding_left: 2
+          padding_right: 0
+        label:
+          padding_right: 16
+          y_offset: -1
+          drawing: off
+          background:
+            height: 26
+            color: "0xff494d64"
+            corner_radius: 8
+            drawing: on
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on
+      separator:
+        icon:
+          symbol:  
+          color: *white
+          font: MesloLGS NF:Bold:20.0
+        background:
+          padding_left: 15
+          padding_right: 10
+        label:
+          drawing: off
+        associated_display: active
+
+  # Display stats for your machine.  Currently shows CPU and Memory.
+  stats:
+    position: right
+    args:
+      cpu_label:
+        label:
+          content: CPU
+          font: MesloLGS NF:Bold:8
+          align: center
+        background:
+          padding_right: 8
+        y_offset: 6
+        width: 0
+      cpu_percent:
+        label:
+          font: MesloLGS NF:Bold:12
+        y_offset: -4
+        update_freq: 2
+        width: 25
+      mem_label:
+        label:
+          content: Mem
+          font: MesloLGS NF:Bold:8
+          drawing: on
+          align: center
+        background:
+          padding_right: 17
+        y_offset: 6
+        width: 0
+      mem_percent:
+        label:
+          font: MesloLGS NF:Bold:12
+        background:
+          padding_right: 10
+        y_offset: -4
+        update_freq: 5
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on
+
+  # The system time, what you normally see in the top right of your screen.
+  time:
+    position: right
+    args:
+      time:
+        update_freq: 1
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: off
+
+  # Looks through the mac calendars to find your next meeting, and if you
+  # have a meeting in progress.
+  upcoming:
+    position: center
+    time_style: long
+    args:
+
+      # Styles based on the meeting type (Microsoft Teams, Google Meet, 
+      # Cisco Webex, a default, and no meeting at all)
+      meeting_type:
+
+        # Upcoming meetings
+        upcoming:
+          default:
+            icon:
+              symbol: &default_meeting_icon 
+              color: "0xffffffff"
+          teams:
+            icon:
+              symbol: 
+              color: "0xff000033"
+          webex:
+            icon:
+              symbol: 
+              color: "0xff0000ff"
+          meet:
+            icon:
+              symbol: 
+              color: "0xff00ff00"
+              font: *default_symbol_font
+          none:
+            icon:
+              symbol: *default_meeting_icon
+              color: "0xffffffff"
+              font: *default_symbol_font
+            label:
+              content: "No upcoming event"
+
+        # For meetings currently in progress
+        now:
+          default:
+            icon:
+              symbol: *default_meeting_icon
+              color: "0xffffffff"
+              drawing: on
+          teams:
+            icon:
+              symbol: 
+              color: "0xff000033"
+              drawing: on
+          webex:
+            icon:
+              symbol: 
+              color: "0xff0000ff"
+              drawing: on
+          meet:
+            icon:
+              symbol: 
+              color: "0xff00ff00"
+              drawing: on
+          none:
+            icon:
+              drawing: off
+            label:
+              drawing: off
+
+      # Item-level attributes for the module controlling active meetings
+      meeting_now:
+        update_freq: &meeting_update_freq 20
+        updates: on
+        label:
+          color: *yellow
+          padding_right: 20
+        associated_display: 1,2
+      # Item-level attributes for the module controlling the next meeting
+      next_meeting:
+        update_freq: *meeting_update_freq
+        updates: on
+        associated_display: 1,2
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: off
+
+  # Uptime Kuma downtime notifier
+  uptime_kuma:
+    position: right
+    metrics_url: https://uptime-kuma.internal.freddrake.com/metrics
+    args:
+      uptime_kuma:
+        click_script: open -a Finicky https://uptime-kuma.internal.freddrake.com
+        associated_display: 1,2
+        icon:
+          symbol: &kuma_up_symbol 歷
+          color: *white
+          font: *default_symbol_font
+        label:
+          content: Uptime Kuma
+          color: *white
+          # width: 150
+        update_freq: 30
+        updates: on
+      uptime_kuma_up:
+        icon:
+          symbol: *kuma_up_symbol
+          color: *white
+      uptime_kuma_down:
+        icon: 
+          symbol: 轢
+          color: *red
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on
+
+  # Shows which VPNs you are currently connected to
+  vpn:
+    position: right
+    args:
+      vpn:
+        icon:
+          symbol: 
+          font: *default_symbol_font
+        update_freq: 5
+
+  # Weather widget for the bar
+  weather:
+    position: right
+    celsius: false
+    args:
+      weather:
+        update_freq: 600
+        icon:
+          font: *default_symbol_font
+          padding_left: 10
+        label:
+          padding_right: 10 
+          y_offset: 1
+        background:
+          drawing: on
+        click_script: open -a Weather
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on
+
+    icon_code:
+      day:
+        "1000":   # Sunny/113
+        "1003":   # Partly cloudy/116
+        "1006":   # Cloudy/119
+        "1009":   # Overcast/122
+        "1030":   # Mist/143
+        "1063":   # Patchy rain possible/176
+        "1066":   # Patchy snow possible/179
+        "1069":   # Patchy sleet possible/182
+        "1072":   # Patchy freezing drizzle possible/185
+        "1087":   # Thundery outbreaks possible/200
+        "1114":   # Blowing snow/227
+        "1117":   # Blizzard/230
+        "1135":   # Fog/248
+        "1147":   # Freezing fog/260
+        "1150":   # Patchy light drizzle/263
+        "1153":   # Light drizzle/266
+        "1168":   # Freezing drizzle/281
+        "1171":   # Heavy freezing drizzle/284
+        "1180":   # Patchy light rain/293
+        "1183":   # Light rain/296
+        "1186":   # Moderate rain at times/299
+        "1189":   # Moderate rain/302
+        "1192":   # Heavy rain at times/305
+        "1195":   # Heavy rain/308
+        "1198":   # Light freezing rain/311
+        "1201":   # Moderate or heavy freezing rain/314
+        "1204":   # Light sleet/317
+        "1207":   # Moderate or heavy sleet/320
+        "1210":   # Patchy light snow/323
+        "1213":   # Light snow/326
+        "1216":   # Patchy moderate snow/329
+        "1219":   # Moderate snow/332
+        "1222":   # Patchy heavy snow/335
+        "1225":   # Heavy snow/338
+        "1237":   # Ice pellets/350
+        "1240":   # Light rain shower/353
+        "1243":   # Moderate or heavy rain shower/356
+        "1246":   # Torrential rain shower/359
+        "1249":   # Light sleet showers/362
+        "1252":   # Moderate or heavy sleet showers/365
+        "1255":   # Light snow showers/368
+        "1258":   # Moderate or heavy snow showers/371
+        "1261":   # Light showers of ice pellets/374
+        "1264":   # Moderate or heavy showers of ice pellets/377
+        "1273":   # Patchy light rain with thunder/386
+        "1276":   # Moderate or heavy rain with thunder/389
+        "1279":   # Patchy light snow with thunder/392
+        "1282":   # Moderate or heavy snow with thunder/395
+      night:
+        "1000":   # Clear/113
+        "1003":   # Partly cloudy/116
+        "1006":   # Cloudy/119
+        "1009":   # Overcast/122
+        "1030":   # Mist/143
+        "1063":   # Patchy rain possible/176
+        "1066":   # Patchy snow possible/179
+        "1069":   # Patchy sleet possible/182
+        "1072":   # Patchy freezing drizzle possible/185
+        "1087":   # Thundery outbreaks possible/200
+        "1114":   # Blowing snow/227
+        "1117":   # Blizzard/230
+        "1135":   # Fog/248
+        "1147":   # Freezing fog/260
+        "1150":   # Patchy light drizzle/263
+        "1153":   # Light drizzle/266
+        "1168":   # Freezing drizzle/281
+        "1171":   # Heavy freezing drizzle/284
+        "1180":   # Patchy light rain/293
+        "1183":   # Light rain/296
+        "1186":   # Moderate rain at times/299
+        "1189":   # Moderate rain/302
+        "1192":   # Heavy rain at times/305
+        "1195":   # Heavy rain/308
+        "1198":   # Light freezing rain/311
+        "1201":   # Moderate or heavy freezing rain/314
+        "1204":   # Light sleet/317
+        "1207":   # Moderate or heavy sleet/320
+        "1210":   # Patchy light snow/323
+        "1213":   # Light snow/326
+        "1216":   # Patchy moderate snow/329
+        "1219":   # Moderate snow/332
+        "1222":   # Patchy heavy snow/335
+        "1225":   # Heavy snow/338
+        "1237":   # Ice pellets/350
+        "1240":   # Light rain shower/353
+        "1243":   # Moderate or heavy rain shower/356
+        "1246":   # Torrential rain shower/359
+        "1249":   # Light sleet showers/362
+        "1252":   # Moderate or heavy sleet showers/365
+        "1255":   # Light snow showers/368
+        "1258":   # Moderate or heavy snow showers/371
+        "1261":   # Light showers of ice pellets/374
+        "1264":   # Moderate or heavy showers of ice pellets/377
+        "1273":   # Patchy light rain with thunder/386
+        "1276":   # Moderate or heavy rain with thunder/389
+        "1279":   # Patchy light snow with thunder/392
+        "1282":   # Moderate or heavy snow with thunder/395
+
+  # Shows which wifi you're connected to, or if you are not connected at all.
+  wifi:
+    position: right
+    args:
+      wifi:
+        icon:
+          font: *default_symbol_font
+        background:
+          padding_right: 12
+        update_freq: 5
+        click_script: open /System/Library/PreferencePanes/Network.prefPane/
+      wifi_up:
+        icon:
+          symbol: 直
+          color: *white
+        label:
+          drawing: on
+      wifi_down:
+        icon:
+          symbol: 睊
+          color: *orange
+        label:
+          drawing: off
+      bracket:
+        background:
+          color: *bracket_color
+          drawing: on

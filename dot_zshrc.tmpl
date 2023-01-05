@@ -1,0 +1,108 @@
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+{{- if eq .chezmoi.os "darwin" }}
+export HOMEBREW_PREFIX=$(brew --prefix)
+export FOO="darwin"
+{{- end }}
+
+# Load P10K theme
+{{- if eq .chezmoi.os "darwin" }}
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+{{- else }}
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+{{- end }}
+
+ZSH_WEB_SEARCH_ENGINES=(
+  whoogle "https://whoogle.internal.freddrake.com/search?q="
+)
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
+{{ if eq .chezmoi.os "darwin" -}}
+plugins=(
+  git
+  ruby
+  golang
+  scala
+  gem
+  history
+  zsh-syntax-highlighting
+  history-substring-search
+  brew
+  nanoc
+  kubectl
+  zsh-autosuggestions
+  macos
+  web-search
+  sudo
+  dirhistory
+  docker
+  docker-compose
+)
+{{- else }}
+
+plugins=(
+  git
+  ruby
+  golang
+  scala
+  gem
+  history
+  zsh-syntax-highlighting
+  history-substring-search
+  nanoc
+  kubectl
+  zsh-autosuggestions
+  web-search
+  sudo
+  dirhistory
+  docker
+  docker-compose
+)
+
+{{- end }}
+
+source $ZSH/oh-my-zsh.sh
+# User configuration
+
+source $HOME/.config/ohmyzsh/custom/variables.zsh
+source $HOME/.config/ohmyzsh/custom/functions.zsh
+source $HOME/.config/ohmyzsh/custom/functions-private.zsh
+source $HOME/.config/ohmyzsh/custom/aliases.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#export POWERLEVEL9K_INSTANT_PROMPT=off
+#neofetch
+
+## eval "$(direnv hook zsh)"
+## export PATH="/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool:$PATH"
+
+## export VOLTA_HOME="$HOME/.volta"
+## export PATH="$VOLTA_HOME/bin:$PATH"
+
+## if [ "$SYSTEM" = "Darwin" ]; then
+  ## eval "$(pyenv init -)"
+  ## eval "$(pyenv virtualenv-init -)"
+## fi
+
+## eval "$(zoxide init zsh)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Volumes/External/Users/fdrake/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
