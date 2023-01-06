@@ -1,0 +1,4 @@
+encryption: age
+age:
+  identity: ~/.age/personal-key.txt
+  recipient: age1ffag60kk9es84dk2yg7ppax6ygmg7a34hpve86d8w8l40k4fj3tq2zqxjg
