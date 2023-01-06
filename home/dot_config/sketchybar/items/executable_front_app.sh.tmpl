@@ -1,3 +1,5 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.front_app.enabled }}
 TEMPIFS="$IFS"
 IFS=$'\n'
 front_app_args=($(explode_args "item.front_app.args.front_app"))
@@ -14,3 +16,4 @@ eval sketchybar -m                                                          \
     --add bracket front_app_bracket '/front_app_.*/'                        \
         --set front_app_bracket                                             \
             "${bracket_args[@]}"
+{{- end }}

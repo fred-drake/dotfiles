@@ -1,3 +1,5 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.spaces.enabled }}
 TEMPIFS="$IFS"
 IFS=$'\n'
 space_args=($(explode_args "item.spaces.args.space"))
@@ -34,4 +36,4 @@ eval sketchybar                                                                 
         --set spaces_separator                                                        \
             ${separator_args[@]}                                                      \
             click_script='yabai -m space --create sketchybar --trigger space_change' 
- 
+{{- end }} 

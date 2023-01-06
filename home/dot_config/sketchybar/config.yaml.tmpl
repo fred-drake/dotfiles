@@ -102,6 +102,11 @@ item:
 
   # Displays the application name of the window with the current focus.
   front_app:
+  {{- if .type.macbook }}
+    enabled: false
+  {{- else }}
+    enabled: true
+  {{- end }}
     position: left
     args:
       front_app:
@@ -126,6 +131,11 @@ item:
   # a space.
   spaces:
     position: left
+  {{- if .type.macbook }}
+    enabled: false
+  {{- else }}
+    enabled: true
+  {{- end }}
 
     # You can leave these as numbered, or use your own nerd font icon to represent
     # that space's theme.
@@ -235,7 +245,11 @@ item:
   # Looks through the mac calendars to find your next meeting, and if you
   # have a meeting in progress.
   upcoming:
+  {{- if .type.macbook }}
+    position: left
+  {{- else }}
     position: center
+  {{- end }}
     time_style: long
     args:
 
