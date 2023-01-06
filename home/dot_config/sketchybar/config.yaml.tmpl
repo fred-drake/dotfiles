@@ -1,3 +1,21 @@
+{{- /* Colors */ -}}
+{{- $black := "0xff181926" -}}
+{{- $white := "0xffcad3f5" -}}
+{{- $red := "0xffed8796" -}}
+{{- $green := "0xffa6da95" -}}
+{{- $blue := "0xff8aadf4" -}}
+{{- $yellow := "0xffeed49f" -}}
+{{- $orange := "0xfff5a97f" -}}
+{{- $magenta := "0xfff9a0f9" -}}
+{{- $grey := "0xff939ab7" -}}
+{{- $transparent := "0x00000000" -}}
+{{- $bracket_color := "0xff3c3e4f" -}}
+
+{{- /* Defaults */ -}}
+{{- $default_padding := 3 -}}
+{{- $default_symbol_font := "MesloLGS NF:Bold:20.0" -}}
+{{- $default_text_font := "SF Mono Nerd Font:Regular:15.0" -}}
+
 #
 # Sketchybar YAML configuration
 #
@@ -77,28 +95,29 @@ item:
   # The apple logo that we all know and love.  In my case, it is purely aesthetic.
   apple:
     position: left
+    enabled: true
     args:
       apple:
-        icon:
-          symbol:                                                                     
-          font: *default_symbol_font
-          color: *green
-        background:
-          padding_right: 10
-        label:
-          drawing: off
+        - icon=                                                                    
+        - icon.font={{ $default_symbol_font | quote }}
+        - icon.color={{ $green }}
+        - background.padding_right=10
+        - label.drawing=off
       bracket:
-        background:
-          color: *bracket_color
-          drawing: off
+        - background.color={{ $bracket_color }}
+        - background.drawing=off
 
   # The amount of charge remaining on the battery.
   battery:
     position: right
+  {{- if .type.macbook }}
+    enabled: true
+  {{- else }}
+    enabled: false
+  {{- end }}
     args:
-      icon:
-        symbol: 
-      update_freq: 3
+      - icon=
+      - update_freq=3
 
   # Displays the application name of the window with the current focus.
   front_app:
@@ -110,20 +129,32 @@ item:
     position: left
     args:
       front_app:
-        icon:
-          symbol: 﩯
-          color: *orange
-          drawing: on
-        background:
-          padding_left: 10
-          padding_right: 10
-        label:
-          color: *white
-        associated_display: active
+        - icon=﩯
+        - icon.color={{ $orange }}
+        - icon.drawing=on
+        - background.padding_left=10
+        - background.padding_right=10
+        - label.color={{ $white }}
+        - associated_display=active
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
+    ## args:
+    ##   front_app:
+    ##     icon:
+    ##       symbol: 﩯
+    ##       color: *orange
+    ##       drawing: on
+    ##     background:
+    ##       padding_left: 10
+    ##       padding_right: 10
+    ##     label:
+    ##       color: *white
+    ##     associated_display: active
+    ##   bracket:
+    ##     background:
+    ##       color: *bracket_color
+    ##       drawing: on
 
   # A graphical representation of the different screen spaces open.  Clicking
   # will send you to that space.  Right-clicking will close the space.  Clicking
@@ -157,38 +188,30 @@ item:
       - "15"
     args:
       space:
-        icon:
-          padding_left: 10
-          padding_right: 15
-          highlight_color: *magenta
-          font: MesloLGS NF:Bold:13.0
-        background:
-          padding_left: 2
-          padding_right: 0
-        label:
-          padding_right: 16
-          y_offset: -1
-          drawing: off
-          background:
-            height: 26
-            color: "0xff494d64"
-            corner_radius: 8
-            drawing: on
+        - icon.padding_left=10
+        - icon.padding_right=15
+        - icon.highlight_color={{ $magenta }}
+        - icon.font="MesloLGS NF:Bold:13.0"
+        - background.padding_left=2
+        - background.padding_right=0
+        - label.padding_right=16
+        - label.y_offset=-1
+        - label.drawing=off
+        - label.background.height=26
+        - label.background.color="0xff494d64"
+        - label.background.corner_radius=8
+        - label.background.drawing=on
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
       separator:
-        icon:
-          symbol:  
-          color: *white
-          font: MesloLGS NF:Bold:20.0
-        background:
-          padding_left: 15
-          padding_right: 10
-        label:
-          drawing: off
-        associated_display: active
+        - icon=
+        - icon.color={{ $white }}
+        - icon.font={{ $default_symbol_font | quote }}
+        - background.padding_left=15
+        - background.padding_right=10
+        - label.drawing=off
+        - associated_display=active
 
   # Display stats for your machine.  Currently shows CPU and Memory.
   stats:
@@ -234,17 +257,18 @@ item:
   # The system time, what you normally see in the top right of your screen.
   time:
     position: right
+    enabled: true
     args:
       time:
-        update_freq: 1
+      - update_freq=1
       bracket:
-        background:
-          color: *bracket_color
-          drawing: off
+      - background.color={{ $bracket_color }}
+      - background.drawing=off
 
   # Looks through the mac calendars to find your next meeting, and if you
   # have a meeting in progress.
   upcoming:
+    enabled: true
   {{- if .type.macbook }}
     position: left
   {{- else }}
@@ -314,62 +338,60 @@ item:
 
       # Item-level attributes for the module controlling active meetings
       meeting_now:
-        update_freq: &meeting_update_freq 20
-        updates: on
-        label:
-          color: *yellow
-          padding_right: 20
-        associated_display: 1,2
+        - update_freq=20
+        - updates=on
+        - label.color={{ $yellow }}
+        - label.padding_right=20
+        - associated_display=1,2
       # Item-level attributes for the module controlling the next meeting
       next_meeting:
-        update_freq: *meeting_update_freq
-        updates: on
-        associated_display: 1,2
+        - update_freq=20
+        - updates=on
+        - associated_display=1,2
       bracket:
-        background:
-          color: *bracket_color
-          drawing: off
+        - background.color={{ $bracket_color }}
+        - background.drawing=off
 
   # Uptime Kuma downtime notifier
   uptime_kuma:
+    enabled: true
     position: right
     metrics_url: https://uptime-kuma.internal.freddrake.com/metrics
     args:
       uptime_kuma:
-        click_script: open -a Finicky https://uptime-kuma.internal.freddrake.com
-        associated_display: 1,2
-        icon:
-          symbol: &kuma_up_symbol 歷
-          color: *white
-          font: *default_symbol_font
-        label:
-          content: Uptime Kuma
-          color: *white
-          # width: 150
-        update_freq: 30
-        updates: on
+        - click_script="open -a Finicky https://uptime-kuma.internal.freddrake.com"
+        - associated_display=1,2
+        - icon=歷
+        - icon.color={{ $white }}
+        - icon.font={{ $default_symbol_font | quote }}
+        - label=Uptime Kuma
+        - label.color={{ $white }}
+        - update_freq=30
+        - updates=on
       uptime_kuma_up:
         icon:
-          symbol: *kuma_up_symbol
+          symbol: 歷
           color: *white
       uptime_kuma_down:
         icon: 
           symbol: 轢
           color: *red
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
 
   # Shows which VPNs you are currently connected to
   vpn:
+    enabled: true
     position: right
     args:
       vpn:
-        icon:
-          symbol: 
-          font: *default_symbol_font
-        update_freq: 5
+        - icon=
+        - icon.font={{ $default_symbol_font | quote }}
+        - update_freq=5
+      bracket:
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
 
   # Weather widget for the bar
   weather:
@@ -377,20 +399,16 @@ item:
     celsius: false
     args:
       weather:
-        update_freq: 600
-        icon:
-          font: *default_symbol_font
-          padding_left: 10
-        label:
-          padding_right: 10 
-          y_offset: 1
-        background:
-          drawing: on
-        click_script: open -a Weather
+        - update_freq: 600
+        - icon.font={{ $default_symbol_font | quote }}
+        - padding_left=10
+        - label.padding_right=10 
+        - label.y_offset=1
+        - background.drawing=on
+        - click_script="open -a Weather"
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
 
     icon_code:
       day:
@@ -494,15 +512,14 @@ item:
 
   # Shows which wifi you're connected to, or if you are not connected at all.
   wifi:
+    enabled: true
     position: right
     args:
       wifi:
-        icon:
-          font: *default_symbol_font
-        background:
-          padding_right: 12
-        update_freq: 5
-        click_script: open /System/Library/PreferencePanes/Network.prefPane/
+        - icon.font={{ $default_symbol_font | quote }}
+        - background.padding_right=12
+        - update_freq=5
+        - click_script="open /System/Library/PreferencePanes/Network.prefPane/"
       wifi_up:
         icon:
           symbol: 直

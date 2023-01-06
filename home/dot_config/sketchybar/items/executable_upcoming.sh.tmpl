@@ -1,0 +1,25 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.upcoming.enabled -}}
+
+sketchybar -m                                                              \
+    --add item upcoming_meeting_now {{ $config.item.upcoming.position }}        \
+        --set upcoming_meeting_now                                              \
+            script="$HOME/.config/sketchybar/plugins/upcoming/meeting_now.sh"   \
+              {{- range $config.item.upcoming.args.meeting_now }}
+              {{ . }} \
+              {{- end }}
+                                                                                \
+    --add item upcoming_next_meeting {{ $config.item.upcoming.position }}       \
+        --set upcoming_next_meeting                                             \
+            script="$HOME/.config/sketchybar/plugins/upcoming/next_meeting.sh"  \
+              {{- range $config.item.upcoming.args.next_meeting }}
+              {{ . }} \
+              {{- end }}
+                                                                                \
+    --add  bracket upcoming_bracket  '/upcoming_.*/'                            \
+        --set upcoming_bracket                                                  \
+              {{- range $config.item.upcoming.args.bracket }}
+              {{ . }} \
+              {{- end }}
+
+{{- end }}

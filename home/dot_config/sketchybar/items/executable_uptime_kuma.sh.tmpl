@@ -1,0 +1,17 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.uptime_kuma.enabled -}}
+
+sketchybar -m                                                                \
+    --add item uptime_kuma {{ $config.item.uptime_kuma.position }}                \
+        --set uptime_kuma                                                         \
+            script="$HOME/.config/sketchybar/plugins/uptime_kuma/uptime_kuma.sh"  \
+            {{- range $config.item.uptime_kuma.args.uptime_kuma }}
+            {{ . }} \
+            {{- end }}
+    --add bracket uptime_kuma_bracket '/uptime_kuma/'                             \
+        --set uptime_kuma_bracket                                                 \
+            {{- range $config.item.uptime_kuma.args.bracket }}
+            {{ . }} \
+            {{- end }}
+
+{{- end }} 

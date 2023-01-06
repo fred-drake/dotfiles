@@ -1,0 +1,17 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.apple.enabled -}}
+
+sketchybar -m                                            \
+    --add item apple {{ $config.item.apple.position }}   \
+        --set apple                   \
+            {{- range $config.item.apple.args.apple }}
+            {{ . }} \
+            {{- end }}
+                                                              \
+    --add bracket apple_bracket  '/apple/'                \
+        --set apple_bracket \
+            {{- range $config.item.apple.args.bracket }}
+            {{ . }} \
+            {{- end }}
+
+{{- end }}

@@ -1,0 +1,17 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.time.enabled -}}
+
+eval sketchybar -m                                          \
+    --add item time {{ $config.item.time.position }}         \
+        --set time                                          \
+            script="$HOME/.config/sketchybar/plugins/time/time.sh"   \
+              {{- range $config.item.time.args.time }}
+              {{ . }} \
+              {{- end }}
+    --add bracket time_bracket '/time/'                     \
+        --set time_bracket \
+              {{- range $config.item.time.args.bracket }}
+              {{ . }} \
+              {{- end }}
+
+{{- end }} 

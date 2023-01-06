@@ -1,0 +1,18 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.vpn.enabled -}}
+
+sketchybar -m                                        \
+    --add item vpn {{ $config.item.vpn.position }}        \
+        --set vpn                                         \
+            script="$HOME/.config/sketchybar/plugins/vpn/vpn.sh"  \
+              {{- range $config.item.vpn.args.vpn }}
+              {{ . }} \
+              {{- end }}
+                                                                            \
+    --add bracket vpn_bracket '/vpn/'                                       \
+        --set vpn_bracket                                                   \
+              {{- range $config.item.vpn.args.bracket }}
+              {{ . }} \
+              {{- end }}
+
+{{- end }}

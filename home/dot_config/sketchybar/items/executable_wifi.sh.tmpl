@@ -1,0 +1,17 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.wifi.enabled -}}
+
+sketchybar -m                                              \
+    --add item wifi {{ $config.item.wifi.position }}            \
+        --set wifi                                              \
+            script="$HOME/.config/sketchybar/plugins/wifi/wifi.sh"   \
+              {{- range $config.item.wifi.args.wifi }}
+              {{ . }} \
+              {{- end }}
+    --add bracket wifi_bracket '/wifi/'                         \
+        --set wifi_bracket                                      \
+              {{- range $config.item.wifi.args.bracket }}
+              {{ . }} \
+              {{- end }}
+
+{{- end }}

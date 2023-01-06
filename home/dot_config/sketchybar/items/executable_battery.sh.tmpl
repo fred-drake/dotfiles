@@ -1,0 +1,12 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.battery.enabled -}}
+
+sketchybar -m                                                \
+    --add item battery {{ $config.item.battery.position }}         \
+        --set battery                                             \
+            script="$HOME/.config/sketchybar/plugins/battery/battery.sh"  \
+            {{- range $config.item.battery.args }}
+            {{ . }} \
+            {{- end }}
+
+{{- end }}
