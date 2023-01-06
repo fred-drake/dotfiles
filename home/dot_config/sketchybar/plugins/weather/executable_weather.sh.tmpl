@@ -1,9 +1,10 @@
+{{- $secret := joinPath .chezmoi.sourceDir "dot_config/sketchybar/ignored_secrets.yaml.age" | include | decrypt | fromYaml -}}
 #!/bin/bash
 
 source "$HOME/.config/sketchybar/functions.sh"
 
-API_KEY="$(secret .weather.api_key)"
-LOCATION="$(secret .weather.location)" 
+API_KEY="{{ $secret.item.weather.api_key }}"
+LOCATION="{{ $secret.item.weather.location }}"
 
 data=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$LOCATION")
 condition=$(echo $data | jq -r '.current.condition.code')
