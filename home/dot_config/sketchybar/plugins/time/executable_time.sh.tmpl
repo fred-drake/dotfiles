@@ -1,0 +1,5 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+DT=$(date +{{ $config.item.time.format | quote }})
+sketchybar --set $NAME label="$DT"

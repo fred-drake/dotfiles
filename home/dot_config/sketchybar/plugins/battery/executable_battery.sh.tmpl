@@ -1,0 +1,37 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+BATT_PERCENT=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
+CHARGING=$(pmset -g batt | grep 'AC Power')
+
+TRUE_PCT=$(echo "scale=2 ; $BATT_PERCENT / 100" | bc)
+GREEN_DEC=$(echo "$TRUE_PCT * 255 / 1" | bc)
+RED_DEC=$[ 255 - $GREEN_DEC ]
+COLOR="0xff$(printf '%02x\n' $RED_DEC)$(printf '%02x\n' $GREEN_DEC)33"
+
+if [[ $CHARGING != "" ]]; then
+  sketchybar -m --set battery \
+    icon.color=$COLOR \
+    icon= \
+    label=$(printf "${BATT_PERCENT}%%")
+  exit 0
+fi
+
+case ${BATT_PERCENT} in
+   100) ICON="{{ $config.item.battery.icon.batt_100 }}" ;;
+    9[0-9]) ICON="{{ $config.item.battery.icon.batt_90 }}" ;;
+    8[0-9]) ICON="{{ $config.item.battery.icon.batt_80 }}" ;;
+    7[0-9]) ICON="{{ $config.item.battery.icon.batt_70 }}" ;;
+    6[0-9]) ICON="{{ $config.item.battery.icon.batt_60 }}" ;;
+    5[0-9]) ICON="{{ $config.item.battery.icon.batt_50 }}" ;;
+    4[0-9]) ICON="{{ $config.item.battery.icon.batt_40 }}" ;;
+    3[0-9]) ICON="{{ $config.item.battery.icon.batt_30 }}" ;;
+    2[0-9]) ICON="{{ $config.item.battery.icon.batt_20 }}" ;;
+    1[0-9]) ICON="{{ $config.item.battery.icon.batt_10 }}" ;;
+    *) ICON="{{ $config.item.battery.icon.batt_10 }}"
+esac
+
+sketchybar -m --set battery\
+  icon.color=$COLOR \
+  icon=$ICON \
+  label=$(printf "${BATT_PERCENT}%%")

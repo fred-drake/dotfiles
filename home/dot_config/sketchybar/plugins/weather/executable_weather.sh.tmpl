@@ -1,25 +1,41 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
 {{- $secret := joinPath .chezmoi.sourceDir "dot_config/sketchybar/ignored_secrets.yaml.age" | include | decrypt | fromYaml -}}
-#!/bin/bash
-
-source "$HOME/.config/sketchybar/functions.sh"
+#!/bin/zsh
 
 API_KEY="{{ $secret.item.weather.api_key }}"
 LOCATION="{{ $secret.item.weather.location }}"
 
+weather_icons_day=(
+{{- range $key, $value := $config.item.weather.icon_code.day }}
+    [{{ $key }}]={{ $value }}
+{{- end }}
+)
+
+weather_icons_night=(
+{{- range $key, $value := $config.item.weather.icon_code.night }}
+    [{{ $key }}]={{ $value }}
+{{- end }}
+)
+
 data=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$LOCATION")
 condition=$(echo $data | jq -r '.current.condition.code')
-if [[ "$(yaml ".item.weather.celsius")" = true ]]; then
+{{ if eq $config.item.weather.celsius true -}}
   temperature="$(echo $data | jq -r '.current.temp_c')"
-else
+{{ else -}}
   temperature="$(echo $data | jq -r '.current.temp_f')"
-fi
+{{- end }}
 humidity=$(echo $data | jq -r '.current.humidity')
 is_day=$(echo $data | jq -r '.current.is_day')
 
 [ "$is_day" = "1" ] && day_night="day" || day_night="night"
 
+if [[ "$is_day" = "1" ]]; then
+  wx_icon=$weather_icons_day[$condition]
+else
+  wx_icon=$weather_icons_night[$condition]
+fi
+
 sketchybar -m \
     --set $NAME \
-        icon="$(yaml ".item.weather.icon_code.${day_night}.${condition}")" \
+        icon=$wx_icon \
         label="${temperature}°"
-

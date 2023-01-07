@@ -1,0 +1,24 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+URL={{ $config.item.uptime_kuma.metrics_url | quote }}
+UP=$(curl -s "$URL" | grep -c "^monitor_status{.*1$")
+DOWN=$(curl -s "$URL" | grep -c "^monitor_status{.*0$")
+TOTAL=$[$UP + $DOWN]
+
+{{- if eq $config.item.uptime_kuma.format_type "short" }}
+LABEL="$(printf "${UP} / ${TOTAL}")"
+{{- else }}
+LABEL="$(printf "Uptime Kuma: ${UP} / ${TOTAL}")"
+{{- end }}
+if [[ $DOWN == 0 ]]; then
+  sketchybar -m --set $NAME label="$LABEL" \
+            {{- range $config.item.uptime_kuma.args.uptime_kuma_up }}
+            {{ . }} \
+            {{ end }}
+else
+  sketchybar -m --set $NAME label="$LABEL" \
+            {{- range $config.item.uptime_kuma.args.uptime_kuma_down }}
+            {{ . }} \
+            {{ end }}
+fi

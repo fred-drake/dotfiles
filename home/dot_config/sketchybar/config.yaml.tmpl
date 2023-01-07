@@ -21,64 +21,42 @@
 #
 
 # Default padding that's set throughout the document
-.default_padding: &default_padding 3
-.default_symbol_font: &default_symbol_font "MesloLGS NF:Bold:20.0"
-.default_text_font: &default_text_font "SF Mono Nerd Font:Regular:15.0"
-
-# Color aliases
-.black: &black "0xff181926"
-.white: &white "0xffcad3f5"
-.red: &red "0xffed8796"
-.green: &green "0xffa6da95"
-.blue: &blue "0xff8aadf4"
-.yellow: &yellow "0xffeed49f"
-.orange: &orange "0xfff5a97f"
-.magenta: &magenta "0xfff9a0f9"
-.grey: &grey "0xff939ab7"
-.transparent: &transparent "0x00000000"
-.bracket_color: &bracket_color "0xff3c3e4f"
 
 # Settings for the bar itself.
 bar:
-  height: 39
-  color: 0xcc24273a
-  shadow: "on"
-  position: top
-  sticky: "on"
-  padding_left: 8
-  padding_right: 2
-  corner_radius: 9
-  y_offset: 3
-  margin: 5
-  blur_radius: 20
-  notch_width: 0
+  - height=39
+  - color=0xcc24273a
+  - shadow="on"
+  - position=top
+  - sticky="on"
+  - padding_left=8
+  - padding_right=2
+  - corner_radius=9
+  - y_offset=3
+  - margin=5
+  - blur_radius=20
+  - notch_width=0
 
 # Default settings that get defined in sketchybar.
 default:
-  updates: when_shown
-  icon:
-    font: *default_symbol_font
-    color: *white
-    padding_left: *default_padding
-    padding_right: *default_padding
-  label:
-    font: *default_text_font
-    color: *white
-    padding_left: *default_padding
-    padding_right: *default_padding 
-  background:
-    padding_left: *default_padding
-    padding_right: *default_padding
-    height: 26
-    corner_radius: 9
-  popup:
-    background:
-      border_width: 2
-      corner_radius: 11
-      border_color: *white
-      color: *black
-      shadow:
-        drawing: "on"
+  - updates=when_shown
+  - icon.font={{ $default_symbol_font | quote }}
+  - icon.color={{ $white }}
+  - icon.padding_left={{ $default_padding }}
+  - icon.padding_right={{ $default_padding }}
+  - label.font={{ $default_text_font | quote }}
+  - label.color={{ $white }}
+  - label.padding_left={{ $default_padding }}
+  - label.padding_right={{ $default_padding }}
+  - background.padding_left={{ $default_padding }}
+  - background.padding_right={{ $default_padding }}
+  - background.height=26
+  - background.corner_radius=9
+  - popup.background.border_width=2
+  - popup.background.corner_radius=11
+  - popup.background.border_color={{ $white }}
+  - popup.background.color={{ $black }}
+  - popup.background.shadow.drawing="on"
 
 # Each of the items that populate the bar.
 #
@@ -118,6 +96,18 @@ item:
     args:
       - icon=
       - update_freq=3
+    icon:
+      charging:   
+      batt_100: 
+      batt_90: 
+      batt_80: 
+      batt_70: 
+      batt_60: 
+      batt_50: 
+      batt_40: 
+      batt_30: 
+      batt_20: 
+      batt_10: 
 
   # Displays the application name of the window with the current focus.
   front_app:
@@ -139,22 +129,6 @@ item:
       bracket:
         - background.color={{ $bracket_color }}
         - background.drawing=on
-    ## args:
-    ##   front_app:
-    ##     icon:
-    ##       symbol: 﩯
-    ##       color: *orange
-    ##       drawing: on
-    ##     background:
-    ##       padding_left: 10
-    ##       padding_right: 10
-    ##     label:
-    ##       color: *white
-    ##     associated_display: active
-    ##   bracket:
-    ##     background:
-    ##       color: *bracket_color
-    ##       drawing: on
 
   # A graphical representation of the different screen spaces open.  Clicking
   # will send you to that space.  Right-clicking will close the space.  Clicking
@@ -215,44 +189,36 @@ item:
 
   # Display stats for your machine.  Currently shows CPU and Memory.
   stats:
+    enabled: true
     position: right
     args:
       cpu_label:
-        label:
-          content: CPU
-          font: MesloLGS NF:Bold:8
-          align: center
-        background:
-          padding_right: 8
-        y_offset: 6
-        width: 0
+        - label="CPU"
+        - label.font="MesloLGS NF:Bold:8"
+        - align=center
+        - background.padding_right=8
+        - y_offset=6
+        - width=0
       cpu_percent:
-        label:
-          font: MesloLGS NF:Bold:12
-        y_offset: -4
-        update_freq: 2
-        width: 25
+        - label.font="MesloLGS NF:Bold:12"
+        - y_offset=-4
+        - update_freq=2
+        - width=25
       mem_label:
-        label:
-          content: Mem
-          font: MesloLGS NF:Bold:8
-          drawing: on
-          align: center
-        background:
-          padding_right: 17
-        y_offset: 6
-        width: 0
+        - label="Mem"
+        - label.font="MesloLGS NF:Bold:8"
+        - align=center
+        - background.padding_right=17
+        - y_offset=6
+        - width=0
       mem_percent:
-        label:
-          font: MesloLGS NF:Bold:12
-        background:
-          padding_right: 10
-        y_offset: -4
-        update_freq: 5
+        - label.font="MesloLGS NF:Bold:12"
+        - background.padding_right=10
+        - y_offset=-4
+        - update_freq=5
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
 
   # The system time, what you normally see in the top right of your screen.
   time:
@@ -264,6 +230,29 @@ item:
       bracket:
       - background.color={{ $bracket_color }}
       - background.drawing=off
+{{- /*
+     Format Part of Date	Description	                                                            Example
+     +%a	  Weekday	      Name of weekday in short (like Sun, Mon, Tue, Wed, Thu, Fri, Sat)	      Mon
+     +%A	  Weekday	      Name of weekday in full (like Sunday, Monday, Tuesday)	                Monday
+     +%b	  Month	        Name of Month in short (like Jan, Feb, Mar )	                          Jan
+     +%B	  Month	        Month name in full (like January, February)	                            January
+     +%d	  Day	          Day of month (e.g., 01)	                                                04
+     +%D	  MM/DD/YY	    Current Date; shown in MM/DD/YY	                                        02/18/18
+     +%F	  YYYY-MM-DD	  Date; shown in YYYY-MM-DD	                                              2018-01-19
+     +%H	  Hour	        Hour in 24-hour clock format	                                          18
+     +%I	  Hour	        Hour in 12-hour clock format	                                          10
+     +%j	  Day	          Day of year (001..366)	                                                152
+     +%m	  Month	        Number of month (01..12) (01 is January)	                              05
+     +%M	  Minutes	      Minutes (00..59)	                                                      52
+     +%S	  Seconds	      Seconds (00..59)	                                                      18
+     +%N	  Nanoseconds	  Nanoseconds (000000000..999999999)	                                    300231695
+     +%T	  HH:MM:SS	    Time as HH:MM:SS (Hours in 24 Format)	                                  18:55:42
+     +%u	  Day of Week	  Day of week (1..7); 1 is Monday	                                        7
+     +%U	  Week	        Displays week number of year, with Sunday as first day of week (00..53)	23
+     +%Y	  Year	        Displays full year i.e. YYYY	                                          2018
+     +%Z	  Timezone	    Time zone abbreviation (Ex: IST, GMT)	                                  IST
+*/}}
+    format: "%a %b %-d   %-I:%M:%S %p"
 
   # Looks through the mac calendars to find your next meeting, and if you
   # have a meeting in progress.
@@ -284,35 +273,32 @@ item:
         # Upcoming meetings
         upcoming:
           default:
-            icon:
-              symbol: &default_meeting_icon 
-              color: "0xffffffff"
+            - icon=
+            - icon.color=0xffffffff
+            - icon.font={{ $default_symbol_font | quote }}
           teams:
-            icon:
-              symbol: 
-              color: "0xff000033"
+            - icon=
+            - color=0xff000033
+            - icon.font={{ $default_symbol_font | quote }}
           webex:
-            icon:
-              symbol: 
-              color: "0xff0000ff"
+            - icon=
+            - icon.color=0xff0000ff
+            - icon.font={{ $default_symbol_font | quote }}
           meet:
-            icon:
-              symbol: 
-              color: "0xff00ff00"
-              font: *default_symbol_font
+            - icon=
+            - icon.color="0xff00ff00"
+            - icon.font={{ $default_symbol_font | quote }}
           none:
-            icon:
-              symbol: *default_meeting_icon
-              color: "0xffffffff"
-              font: *default_symbol_font
-            label:
-              content: "No upcoming event"
+            - icon=
+            - icon.color=0xffffffff
+            - icon.font={{ $default_symbol_font | quote }}
+            - label="No upcoming event"
 
         # For meetings currently in progress
         now:
           default:
             icon:
-              symbol: *default_meeting_icon
+              symbol: 
               color: "0xffffffff"
               drawing: on
           teams:
@@ -357,6 +343,11 @@ item:
     enabled: true
     position: right
     metrics_url: https://uptime-kuma.internal.freddrake.com/metrics
+  {{- if .type.macbook }}
+    format_type: short
+  {{- else }}
+    format_type: long
+  {{- end }}
     args:
       uptime_kuma:
         - click_script="open -a Finicky https://uptime-kuma.internal.freddrake.com"
@@ -369,13 +360,11 @@ item:
         - update_freq=30
         - updates=on
       uptime_kuma_up:
-        icon:
-          symbol: 歷
-          color: *white
+        - icon=歷
+        - icon.color: {{ $white }}
       uptime_kuma_down:
-        icon: 
-          symbol: 轢
-          color: *red
+        - icon.symbol=轢
+        - icon.color: {{ $red }}
       bracket:
         - background.color={{ $bracket_color }}
         - background.drawing=on
@@ -521,18 +510,13 @@ item:
         - update_freq=5
         - click_script="open /System/Library/PreferencePanes/Network.prefPane/"
       wifi_up:
-        icon:
-          symbol: 直
-          color: *white
-        label:
-          drawing: on
+        - icon=直
+        - icon.color={{ $white }}
+        - label.drawing=on
       wifi_down:
-        icon:
-          symbol: 睊
-          color: *orange
-        label:
-          drawing: off
+        - icon=睊
+        - icon.color={{ $orange }}
+        - label.drawing=off
       bracket:
-        background:
-          color: *bracket_color
-          drawing: on
+        - background.color={{ $bracket_color }}
+        - background.drawing=on

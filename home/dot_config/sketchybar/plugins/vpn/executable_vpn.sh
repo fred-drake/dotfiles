@@ -5,7 +5,6 @@ VPN=$(scutil --nc list | grep Connected | sed -E 's/.*"(.*)".*/\1/' | awk -v d="
 if [[ $VPN != "" ]]; then
   sketchybar -m --set $NAME label="$VPN" label.drawing="on" icon.drawing="on"
 else
-  # sketchybar -m --set vpn drawing=off
   sketchybar -m --set $NAME label.drawing="off" icon.drawing="off"
 fi
 

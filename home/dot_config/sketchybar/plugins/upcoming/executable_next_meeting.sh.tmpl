@@ -1,0 +1,50 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+source "$HOME/.config/sketchybar/plugins/upcoming/functions.sh"
+
+CURDT=$(date +"%s")
+EVENT=$($HOME/.config/sketchybar/plugins/upcoming/ical-buddy-json.sh                                \
+            -c Home,Work -u |                                                                       \
+            jq -c "sort_by(.start_secs) | .[] | select(.start_at) | select(.start_secs > $CURDT)" | \
+            head -1)
+
+if [ "$EVENT" = "" ]; then
+  sketchybar --set $NAME                                                            \
+              {{- range $config.item.upcoming.args.meeting_type.upcoming.none }}
+              {{ . }}                                                               \
+              {{- end }}
+
+else
+  title=$(jq -r ".title" <<< "$EVENT")
+  start_secs=$(jq -r ".start_secs" <<< "$EVENT")
+  date_label=$(human_time_diff "$start_secs" {{ $config.item.upcoming.time_style | quote }})
+  meeting_type=$(meeting_type_by_url $(jq -r ".urls | .[]" <<< "$EVENT" | head -1))
+
+  label_text="Next: $title (in $date_label)" 
+  if [[ "$meeting_type" == "teams" ]]; then
+    sketchybar --set $NAME label="$label_text"                                      \
+              {{- range $config.item.upcoming.args.meeting_type.upcoming.teams }}
+              {{ . }}                                                               \
+              {{- end }}
+
+  elif [[ "$meeting_type" == "webex" ]]; then
+    sketchybar --set $NAME label="$label_text"                                      \
+              {{- range $config.item.upcoming.args.meeting_type.upcoming.webex }}
+              {{ . }}                                                               \
+              {{- end }}
+
+  elif [[ "$meeting_type" == "meet" ]]; then
+    sketchybar --set $NAME label="$label_text"                                      \
+              {{- range $config.item.upcoming.args.meeting_type.upcoming.meet }}
+              {{ . }}                                                               \
+              {{- end }}
+
+  else
+    sketchybar --set $NAME label="$label_text"                                      \
+              {{- range $config.item.upcoming.args.meeting_type.upcoming.default }}
+              {{ . }}                                                               \
+              {{- end }}
+
+  fi
+fi
