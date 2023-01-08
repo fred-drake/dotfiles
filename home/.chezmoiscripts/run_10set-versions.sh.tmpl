@@ -1,0 +1,17 @@
+{{- /* Create versions yaml file dumping versions that we will check for later */ -}}
+{{- $f := joinPath .chezmoi.sourceDir "versions.yaml" -}}
+#!/bin/bash
+echo "versions:" > {{ $f }}
+{{- if eq .chezmoi.os "darwin" }}
+  echo "  sketchybar: $(sketchybar --version)" >> {{ $f }}
+  echo "  skhd: $(skhd --version)" >> {{ $f }}
+  echo "  yabai: $(yabai --version)" >> {{ $f }}
+echo "checksums:" >> {{ $f }}
+  echo "  sketchybar: $(find {{ joinPath .chezmoi.sourceDir "dot_config/sketchybar" | quote }} \
+      -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
+  echo "  skhd: $(find {{ joinPath .chezmoi.sourceDir "dot_config/skhd" | quote }} \
+      -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
+  echo "  yabai: $(find {{ joinPath .chezmoi.sourceDir "dot_config/yabai" | quote }} \
+      -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
+{{- end }}
+
