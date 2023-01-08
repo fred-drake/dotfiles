@@ -1,0 +1,20 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.brew.enabled -}}
+# Trigger the brew_udpate event when brew update or upgrade is run from cmdline
+# e.g. via function in .zshrc
+
+sketchybar \
+    --add event brew_update                 \
+    --add item brew {{ $config.item.brew.position }}                   \
+        --set brew script="$HOME/.config/sketchybar/plugins/brew/brew.sh" \
+            {{- range $config.item.brew.args.brew }}
+            {{ . }}                           \
+            {{- end }}
+        --subscribe brew brew_update              \
+    --add bracket brew_bracket '/brew/'                        \
+        --set brew_bracket                                             \
+            {{- range $config.item.brew.args.bracket }}
+            {{ . }} \
+            {{- end }}
+
+{{- end }} 

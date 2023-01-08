@@ -25,6 +25,9 @@ sketchybar --bar                        \
 
 # Left
 source "$ITEM_DIR/apple.sh"
+{{- if eq .chezmoi.os "darwin" }}
+source "$ITEM_DIR/brew.sh"
+{{- end }}
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/upcoming.sh"
@@ -40,7 +43,6 @@ source "$ITEM_DIR/upcoming.sh"
 # source "$ITEM_DIR/divider.sh"
 
 source "$ITEM_DIR/time.sh"
-
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/stats.sh"
 source "$ITEM_DIR/wifi.sh"

@@ -109,6 +109,36 @@ item:
       batt_20: 
       batt_10: 
 
+  # Brew packages available for update
+  brew:
+    enabled: true
+    position: left
+    # Make sure these are in ascending order of threshold count in order to work correctly
+    threshold_colors:
+      - threshold: 1
+        color: "{{ $white }}"
+      - threshold: 20
+        color: "{{ $yellow }}"
+      - threshold: 30
+        color: "{{ $orange }}"
+      - threshold: 50
+        color: "{{ $red }}"
+    args:
+      brew:
+        - icon=
+        - label=?
+        - background.padding_right=10
+        - update_freq=3600
+      no_updates:
+        - label=
+        - label.font={{ $default_symbol_font | quote }}
+        - label.color={{ $green }}
+      updates_available:
+        - label.font={{ $default_text_font | quote }}
+      bracket:
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
+
   # Displays the application name of the window with the current focus.
   front_app:
   {{- if .type.macbook }}

@@ -1,0 +1,25 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/usr/bin/env bash
+
+COUNT=$(brew outdated | wc -l | tr -d ' ')
+
+COLOR="0xffffffff"
+{{- range $config.item.brew.threshold_colors }}
+if (( $COUNT >= {{ .threshold }})); then
+  COLOR={{ .color }}
+fi
+{{- end }}
+
+if [[ "$COUNT" = "0" ]]; then
+sketchybar --set "$NAME" \
+            {{- range $config.item.brew.args.no_updates }}
+            {{ . }}                           \
+            {{- end }}
+
+else
+sketchybar --set "$NAME" label="$COUNT" icon.color="$COLOR" \
+            {{- range $config.item.brew.args.updates_available }}
+            {{ . }}                           \
+            {{- end }}
+
+fi
