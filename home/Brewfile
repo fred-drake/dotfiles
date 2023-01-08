@@ -1,0 +1,349 @@
+tap "aws/tap"
+tap "buo/cask-upgrade"
+tap "drone/drone"
+tap "epk/epk"
+tap "felixkratz/formulae"
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "hudochenkov/sshpass"
+tap "juicedata/tap"
+tap "khanhas/tap"
+tap "koekeishiya/formulae"
+tap "romkatv/powerlevel10k"
+tap "siderolabs/talos"
+# Simple, modern, secure file encryption
+brew "age"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Checks ansible playbooks for practices and behaviour
+brew "ansible-lint"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Platform built on V8 to build network applications
+brew "node"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# GNU compiler collection
+brew "gcc"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle
+brew "clusterctl"
+# Utility that creates projects from templates
+brew "cookiecutter"
+# Open source suite of directory software
+brew "openldap"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# DDC monitor controls (brightness) for Mac OSX command-line
+brew "ddcctl"
+# Debugger for the Go programming language
+brew "delve"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Modern replacement for 'ls'
+brew "exa"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Multi-format archive and compression library
+brew "libarchive"
+# Secure Reliable Transport
+brew "srt"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Lint your Python code for style and logical errors
+brew "flake8"
+# Free Unix Spectrum Emulator
+brew "fuse-emulator"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Distributed revision control system
+brew "git"
+# Alternative to top/htop
+brew "glances"
+# Network related modules for glib
+brew "glib-networking"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Fast linters runner for Go
+brew "golangci-lint"
+# GStreamer plugins for Libav (a fork of FFmpeg)
+brew "gst-libav"
+# GStreamer plugins less supported, not fully tested
+brew "gst-plugins-bad"
+# Toolkit for creating graphical user interfaces
+brew "gtk+3"
+# HTTP client/server library for GNOME
+brew "libsoup"
+# GStreamer plugins (well-supported, under the LGPL)
+brew "gst-plugins-good"
+# Library for constructing graphs of media-handling components
+brew "gst-plugins-ugly"
+# VNC viewer widget for GTK
+brew "gtk-vnc"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
+# Kubernetes package manager
+brew "helm"
+# Get events and tasks from the macOS calendar database
+brew "ical-buddy"
+# Utility for IPMI control with kernel driver or LAN interface
+brew "ipmitool"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Implementation of JSON Schema for Python
+brew "jsonschema"
+# Utility to create k3s clusters on any local or remote VM
+brew "k3sup"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Kubernetes controller and tool for one-way encrypted Secrets
+brew "kubeseal"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Portable library for network traffic capture
+brew "libpcap"
+# C virtualization API
+brew "libvirt"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Mac App Store command-line interface
+brew "mas"
+# Terminal-based visual file manager
+brew "midnight-commander"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Python version management
+brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
+# GNOME Python bindings (based on GObject Introspection)
+brew "pygobject3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Fast, efficient and secure backup program
+brew "restic"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Safe, concurrent, practical language
+brew "rust"
+# Editor of encrypted files
+brew "sops"
+# Test SSL/TLS enabled services to discover supported cipher suites
+brew "sslscan"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
+# User interface to the TELNET protocol
+brew "telnet"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Terminal emulator widget used by GNOME terminal
+brew "vte3"
+# App for managing virtual machines
+brew "virt-manager"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# Tools for the WireGuard secure network tunnel
+brew "wireguard-tools"
+# JavaScript package manager
+brew "yarn"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Fork of youtube-dl with additional features and fixes
+brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
+brew "aws/tap/aws-sam-cli"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
+# Packer
+brew "hashicorp/tap/packer"
+# JuiceFS is a distributed POSIX file system built on top of Redis and S3
+brew "juicedata/tap/juicefs"
+# Command-line tool to customize Spotify client
+brew "khanhas/tap/spicetify-cli"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
+# A Zsh Theme
+brew "romkatv/powerlevel10k/powerlevel10k"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Application launcher and productivity software
+cask "alfred"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Network scanner
+cask "angry-ip-scanner"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Menu bar icon organizer
+cask "bartender"
+# Online gaming platform
+cask "battle-net"
+# Cross platform SQL editor and database management app
+cask "beekeeper-studio"
+# Tool to customize input devices and automate computer systems
+cask "bettertouchtool"
+# Web browser focusing on privacy
+cask "brave-browser"
+# GUI app for Homebrew
+cask "cakebrew"
+# E-books management software
+cask "calibre"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Draw.io is free online diagram software
+cask "drawio"
+# Utility for customizing which browser to start
+cask "finicky"
+# Screen color temperature controller
+cask "flux"
+cask "font-sf-mono-nerd-font"
+# Visual desktop tool suite for working with the Fuse framework
+cask "fuse"
+# Free and open-source image editor
+cask "gimp"
+# Game client
+cask "gog-galaxy"
+# Web browser
+cask "google-chrome"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Menu bar calendar
+cask "itsycal"
+# Open-source Markdown editor
+cask "macdown"
+# File system integration
+cask "macfuse"
+# Open-source Dropbox client
+cask "maestral"
+# Shows the next meeting in the menu bar
+cask "meetingbar"
+# Visual diff and merge tool
+cask "meld"
+# Online collaborative whiteboard platform
+cask "miro"
+# GameStream client
+cask "moonlight"
+# Calculator and converter application
+cask "numi"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Open source build of Lens Kubernetes IDE
+cask "openlens"
+# Play PC games and connect with your friends
+cask "origin"
+# HTTP client that helps testing and describing APIs
+cask "paw"
+# Home media player
+cask "plex"
+# Collaboration platform for API development
+cask "postman"
+# Kubernetes and container management on the desktop
+cask "rancher"
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
+# Graphical client for Git version control
+cask "sourcetree"
+# Music streaming service
+cask "spotify"
+# Spotify and iTunes in the menu bar
+cask "spotmenu"
+# Video game digital distribution service
+cask "steam"
+# CLI for out-of-band management of Kubernetes nodes created by Talos
+cask "talosctl"
+# Unpacks archive files
+cask "the-unarchiver"
+# To-do list
+cask "todoist"
+# Free and open-source OpenVPN client
+cask "tunnelblick"
+# 3D printer and slicing GUI
+cask "ultimaker-cura"
+# Open-source code editor
+cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
+# Create, manage, and run virtual machines
+cask "vmware-fusion"
+# Remote desktop application focusing on security
+cask "vnc-viewer"
+# Desktop client for WhatsApp
+cask "whatsapp"
+# Compatibility layer to run Windows applications
+cask "wine-stable"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "Auth for Tesla", id: 1552058613
+mas "Battery Health", id: 490192174
+mas "Be Focused", id: 973134470
+mas "Bitwarden", id: 1352778147
+mas "Disk Diag", id: 672206759
+mas "GarageBand", id: 682658836
+mas "HP Easy Scan", id: 967004861
+mas "HP Smart", id: 1474276998
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "MacFamilyTree 9", id: 1458866808
+mas "MenubarClock", id: 492167985
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft To Do", id: 1274495053
+mas "Notability", id: 360593530
+mas "Numbers", id: 409203825
+mas "Okta Verify", id: 490179405
+mas "OneDrive", id: 823766827
+mas "Pages", id: 409201541
+mas "Reeder", id: 1449412482
+mas "RunCat", id: 1429033973
+mas "Slack", id: 803453959
+mas "Trello", id: 1278508951
+mas "Valet Car Control", id: 1438609932
+mas "VMware Remote Console", id: 1230249825
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
