@@ -18,8 +18,12 @@ tap "siderolabs/talos"
 brew "age"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# Python code formatter
+brew "black"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Linter for YAML files
+brew "yamllint"
 # Checks ansible playbooks for practices and behaviour
 brew "ansible-lint"
 # Official Amazon AWS command-line interface
@@ -82,6 +86,8 @@ brew "go"
 brew "golangci-lint"
 # GStreamer plugins for Libav (a fork of FFmpeg)
 brew "gst-libav"
+# GLib ICE implementation
+brew "libnice"
 # GStreamer plugins less supported, not fully tested
 brew "gst-plugins-bad"
 # Toolkit for creating graphical user interfaces
@@ -279,8 +285,6 @@ cask "paw"
 cask "plex"
 # Collaboration platform for API development
 cask "postman"
-# Kubernetes and container management on the desktop
-cask "rancher"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
