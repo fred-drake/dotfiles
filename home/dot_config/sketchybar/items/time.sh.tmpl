@@ -2,13 +2,19 @@
 {{- if $config.item.time.enabled -}}
 
 eval sketchybar -m                                          \
-    --add item time {{ $config.item.time.position }}         \
-        --set time                                          \
+    --add item time_top {{ $config.item.time.position }}         \
+        --set time_top                                          \
             script="$HOME/.config/sketchybar/plugins/time/time.sh"   \
-              {{- range $config.item.time.args.time }}
+              {{- range $config.item.time.args.time_top }}
               {{ . }} \
               {{- end }}
-    --add bracket time_bracket '/time/'                     \
+    --add item time_bottom {{ $config.item.time.position }}         \
+        --set time_bottom                                          \
+            script="$HOME/.config/sketchybar/plugins/time/time.sh"   \
+              {{- range $config.item.time.args.time_bottom }}
+              {{ . }} \
+              {{- end }}
+    --add bracket time_bracket '/time_.*/'                     \
         --set time_bracket \
               {{- range $config.item.time.args.bracket }}
               {{ . }} \

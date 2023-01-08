@@ -1,5 +1,9 @@
 {{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
 #!/bin/bash
 
-DT=$(date +{{ $config.item.time.format | quote }})
+if [[ "$NAME" = "time_top" ]]; then
+  DT=$(date +{{ $config.item.time.format.top | quote }})
+else
+  DT=$(date +{{ $config.item.time.format.bottom | quote }})
+fi
 sketchybar --set $NAME label="$DT"
