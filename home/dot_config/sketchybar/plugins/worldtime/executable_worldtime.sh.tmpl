@@ -1,0 +1,10 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+{{- range $index, $clock := $config.item.worldtime.clocks }}
+if [[ "$NAME" = "worldtime_timestamp_{{ $index }}" ]]; then
+  DT="$(TZ="{{ $clock.tz }}" date +{{ $config.item.worldtime.format | quote }})"
+  sketchybar --set $NAME label="$DT"
+fi
+{{- end }}
+

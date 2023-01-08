@@ -1,0 +1,32 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.worldtime.enabled -}}
+
+sketchybar                                           \
+{{- range $index, $clock := $config.item.worldtime.clocks }}
+    --add item worldtime_label_{{ $index }} {{ $config.item.worldtime.position }}         \
+        --set worldtime_label_{{ $index }}                                          \
+              label={{ .label | quote }}      \
+              {{- range $config.item.worldtime.args.worldtime_label }}
+              {{ . }} \
+              {{- end }}
+              {{- range $a := .args.label }}
+              {{ $a }} \
+              {{- end }}
+    --add item worldtime_timestamp_{{ $index }} {{ $config.item.worldtime.position }}         \
+        --set worldtime_timestamp_{{ $index }}                                          \
+              script="$HOME/.config/sketchybar/plugins/worldtime/worldtime.sh"   \
+              {{- range $config.item.worldtime.args.worldtime_timestamp }}
+              {{ . }} \
+              {{- end }}
+              {{- range $a := .args.timestamp }}
+              {{ $a }} \
+              {{- end }}
+{{- end }} 
+
+sketchybar            \
+    --add bracket worldtime_bracket '/worldtime_..*/'                     \
+        --set worldtime_bracket \
+              {{- range $config.item.worldtime.args.bracket }}
+              {{ . }} \
+              {{- end }}
+{{- end }} 

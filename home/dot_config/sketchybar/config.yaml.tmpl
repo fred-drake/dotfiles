@@ -231,26 +231,48 @@ item:
       - background.color={{ $bracket_color }}
       - background.drawing=off
 {{- /*
-     Format Part of Date	Description	                                                            Example
-     +%a	  Weekday	      Name of weekday in short (like Sun, Mon, Tue, Wed, Thu, Fri, Sat)	      Mon
-     +%A	  Weekday	      Name of weekday in full (like Sunday, Monday, Tuesday)	                Monday
-     +%b	  Month	        Name of Month in short (like Jan, Feb, Mar )	                          Jan
-     +%B	  Month	        Month name in full (like January, February)	                            January
-     +%d	  Day	          Day of month (e.g., 01)	                                                04
-     +%D	  MM/DD/YY	    Current Date; shown in MM/DD/YY	                                        02/18/18
-     +%F	  YYYY-MM-DD	  Date; shown in YYYY-MM-DD	                                              2018-01-19
-     +%H	  Hour	        Hour in 24-hour clock format	                                          18
-     +%I	  Hour	        Hour in 12-hour clock format	                                          10
-     +%j	  Day	          Day of year (001..366)	                                                152
-     +%m	  Month	        Number of month (01..12) (01 is January)	                              05
-     +%M	  Minutes	      Minutes (00..59)	                                                      52
-     +%S	  Seconds	      Seconds (00..59)	                                                      18
-     +%N	  Nanoseconds	  Nanoseconds (000000000..999999999)	                                    300231695
-     +%T	  HH:MM:SS	    Time as HH:MM:SS (Hours in 24 Format)	                                  18:55:42
-     +%u	  Day of Week	  Day of week (1..7); 1 is Monday	                                        7
-     +%U	  Week	        Displays week number of year, with Sunday as first day of week (00..53)	23
-     +%Y	  Year	        Displays full year i.e. YYYY	                                          2018
-     +%Z	  Timezone	    Time zone abbreviation (Ex: IST, GMT)	                                  IST
+     Format Description	                                                            Example
+      %%    A literal %                                                             %%
+      %a	  Name of weekday in short (like Sun, Mon, Tue, Wed, Thu, Fri, Sat)	      Mon
+      %A	  Name of weekday in full (like Sunday, Monday, Tuesday)	                Monday
+      %b	  Name of Month in short (like Jan, Feb, Mar )	                          Jan
+      %B	  Month name in full (like January, February)	                            January
+      %c    Full date and time                                                      Thu Mar 3 23:05:25 2005
+      %C    Century; like %Y except omit last two digits                            21
+      %d	  Day of month (e.g., 01)	                                                04
+      %D	  Current Date; shown in MM/DD/YY	                                        02/18/18
+      %e    Day of month, space padded; same as %_d                                  4
+      %F	  Date; shown in YYYY-MM-DD	                                              2018-01-19
+      %H	  Hour in 24-hour clock format	                                          18
+      %I	  Hour in 12-hour clock format	                                          10
+      %j	  Day of year (001..366)	                                                152
+      %k    Hour in 24-hour clock format, single digit 0-9                           8
+      %l    Hour in 12-hour clock format, single digit 0-9                           5
+      %m	  Number of month (01..12) (01 is January)	                              05
+      %M	  Minutes (00..59)	                                                      52
+      %n    A newline
+      %N	  Nanoseconds (000000000..999999999)	                                    300231695
+      %p    Locale's equivalent of either AM or PM; blank if not known              PM
+      %P    Locale's equivalent of either am or pm; blank if not known              pm
+      %r    12 hour full clock time                                                 11:11:04 PM
+      %R    24-hour hour and minute; same as %H:%M                                  23:11
+      %s    Seconds since 1970-01-01 00:00:00 UTC                                   1673128569
+      %S	  Seconds (00..59)	                                                      18
+      %t    A tab
+      %T	  Time as HH:MM:SS (Hours in 24 Format)	                                  18:55:42
+      %u	  Day of week (1..7); 1 is Monday	                                        7
+      %U	  Displays week number of year, with Sunday as first day of week (00..53)	23
+      %w    Day of week (0..6); 0 is Sunday                                         2
+      %W    Week number of year, with Monday as first day of week (00..53)          28
+      %x    Locale's date representation                                            12/31/99
+      %X    Locale's time representation                                            23:13:48
+      %y    Last two digits of the year (00..99)                                    22
+      %Y	  Displays full year i.e. YYYY	                                          2018
+      %z    +hhmm numeric timezone                                                  -0400
+      %:z   +hh:mm numeric timezone                                                 -04:00
+      %::z  +hh:mm:ss numeric time zone                                             -04:00:00
+      %:::z Numeric timezone with : to necessary precision                          -04, +05:30
+      %Z	  Time zone abbreviation (Ex: IST, GMT)	                                  IST
 */}}
     format: "%a %b %-d   %-I:%M:%S %p"
 
@@ -517,6 +539,101 @@ item:
         - icon=睊
         - icon.color={{ $orange }}
         - label.drawing=off
+      bracket:
+        - background.color={{ $bracket_color }}
+        - background.drawing=on
+
+  # Displays current time for many timezones
+  worldtime:
+    enabled: true
+    position: right
+{{- /*
+     Format Description	                                                            Example
+      %%    A literal %                                                             %%
+      %a	  Name of weekday in short (like Sun, Mon, Tue, Wed, Thu, Fri, Sat)	      Mon
+      %A	  Name of weekday in full (like Sunday, Monday, Tuesday)	                Monday
+      %b	  Name of Month in short (like Jan, Feb, Mar )	                          Jan
+      %B	  Month name in full (like January, February)	                            January
+      %c    Full date and time                                                      Thu Mar 3 23:05:25 2005
+      %C    Century; like %Y except omit last two digits                            21
+      %d	  Day of month (e.g., 01)	                                                04
+      %D	  Current Date; shown in MM/DD/YY	                                        02/18/18
+      %e    Day of month, space padded; same as %_d                                  4
+      %F	  Date; shown in YYYY-MM-DD	                                              2018-01-19
+      %H	  Hour in 24-hour clock format	                                          18
+      %I	  Hour in 12-hour clock format	                                          10
+      %j	  Day of year (001..366)	                                                152
+      %k    Hour in 24-hour clock format, single digit 0-9                           8
+      %l    Hour in 12-hour clock format, single digit 0-9                           5
+      %m	  Number of month (01..12) (01 is January)	                              05
+      %M	  Minutes (00..59)	                                                      52
+      %n    A newline
+      %N	  Nanoseconds (000000000..999999999)	                                    300231695
+      %p    Locale's equivalent of either AM or PM; blank if not known              PM
+      %P    Locale's equivalent of either am or pm; blank if not known              pm
+      %r    12 hour full clock time                                                 11:11:04 PM
+      %R    24-hour hour and minute; same as %H:%M                                  23:11
+      %s    Seconds since 1970-01-01 00:00:00 UTC                                   1673128569
+      %S	  Seconds (00..59)	                                                      18
+      %t    A tab
+      %T	  Time as HH:MM:SS (Hours in 24 Format)	                                  18:55:42
+      %u	  Day of week (1..7); 1 is Monday	                                        7
+      %U	  Displays week number of year, with Sunday as first day of week (00..53)	23
+      %w    Day of week (0..6); 0 is Sunday                                         2
+      %W    Week number of year, with Monday as first day of week (00..53)          28
+      %x    Locale's date representation                                            12/31/99
+      %X    Locale's time representation                                            23:13:48
+      %y    Last two digits of the year (00..99)                                    22
+      %Y	  Displays full year i.e. YYYY	                                          2018
+      %z    +hhmm numeric timezone                                                  -0400
+      %:z   +hh:mm numeric timezone                                                 -04:00
+      %::z  +hh:mm:ss numeric time zone                                             -04:00:00
+      %:::z Numeric timezone with : to necessary precision                          -04, +05:30
+      %Z	  Time zone abbreviation (Ex: IST, GMT)	                                  IST
+*/}}
+    format: "%l:%M"
+
+    {{/* For all timezones: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones */}}
+    clocks:
+      - label: Argentina
+        tz: America/Argentina/Buenos_Aires
+        args:
+          label:
+            - background.padding_right=8
+          timestamp:
+            - label.padding_right=18
+      - label: Brazil
+        tz: America/Sao_Paulo
+        args:
+          label:
+            - background.padding_right=32
+          timestamp:
+            - label.padding_right=38
+      - label: Ukraine
+        tz: Europe/Kyiv
+        args:
+          label:
+            - background.padding_right=50
+          timestamp:
+            - label.padding_right=58
+      - label: Nigeria
+        tz: Africa/Lagos
+        args:
+          label:
+            - background.padding_right=76
+          timestamp:
+            - label.padding_right=88
+    args:
+      worldtime_label:
+        - label.font="MesloLGS NF:Bold:8"
+        - align=center
+        - y_offset=6
+        - width=0
+      worldtime_timestamp:
+        - label.font="MesloLGS NF:Bold:12"
+        - y_offset=-4
+        - width=30
+        - update_freq=2
       bracket:
         - background.color={{ $bracket_color }}
         - background.drawing=on
