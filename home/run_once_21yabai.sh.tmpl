@@ -1,0 +1,6 @@
+{{- $versions := joinPath .chezmoi.sourceDir "versions.yaml" | include | fromYaml -}}
+#!/bin/bash
+{{- if eq .chezmoi.os "darwin" }}
+# Hash Brewfile {{- $versions.versions.yabai | sha256sum }}
+brew services restart yabai
+{{- end }}

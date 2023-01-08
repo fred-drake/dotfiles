@@ -1,0 +1,10 @@
+{{- /* Create versions yaml file dumping versions that we will check for later */ -}}
+{{- $f := joinPath .chezmoi.sourceDir "versions.yaml" -}}
+#!/bin/bash
+echo "versions:" > {{ $f }}
+{{- if eq .chezmoi.os "darwin" }}
+  echo "  sketchybar: $(sketchybar --version)" >> {{ $f }}
+  echo "  skhd: $(skhd --version)" >> {{ $f }}
+  echo "  yabai: $(yabai --version)" >> {{ $f }}
+{{- end }}
+
