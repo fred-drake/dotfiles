@@ -348,7 +348,7 @@ item:
             - icon.font={{ $default_symbol_font | quote }}
           meet:
             - icon=
-            - icon.color="0xff00ff00"
+            - icon.color=0xff00ff00
             - icon.font={{ $default_symbol_font | quote }}
           none:
             - icon=
@@ -359,30 +359,32 @@ item:
         # For meetings currently in progress
         now:
           default:
-            icon:
-              symbol: 
-              color: "0xffffffff"
-              drawing: on
+            - icon=
+            - icon.color=0xffffffff
+            - icon.drawing=on
+            - label.drawing=on
+            - icon.font={{ $default_symbol_font | quote }}
           teams:
-            icon:
-              symbol: 
-              color: "0xff000033"
-              drawing: on
+            - icon=
+            - icon.color=0xff000033
+            - icon.drawing=on
+            - label.drawing=on
+            - icon.font={{ $default_symbol_font | quote }}
           webex:
-            icon:
-              symbol: 
-              color: "0xff0000ff"
-              drawing: on
+            - icon=
+            - icon.color=0xff0000ff
+            - icon.drawing=on
+            - label.drawing=on
+            - icon.font={{ $default_symbol_font | quote }}
           meet:
-            icon:
-              symbol: 
-              color: "0xff00ff00"
-              drawing: on
+            - icon=
+            - icon.color=0xff00ff00
+            - icon.drawing=on
+            - label.drawing=on
+            - icon.font={{ $default_symbol_font | quote }}
           none:
-            icon:
-              drawing: off
-            label:
-              drawing: off
+            - icon.drawing=off
+            - label.drawing=off
 
       # Item-level attributes for the module controlling active meetings
       meeting_now:
