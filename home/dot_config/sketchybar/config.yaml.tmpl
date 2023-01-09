@@ -321,10 +321,11 @@ item:
     enabled: true
   {{- if .type.macbook }}
     position: left
+    time_style: short
   {{- else }}
     position: center
-  {{- end }}
     time_style: long
+  {{- end }}
     args:
 
       # Styles based on the meeting type (Microsoft Teams, Google Meet, 
