@@ -19,7 +19,7 @@ else
   title=$(jq -r ".title" <<< "$EVENT")
   end_secs=$(jq -r ".end_secs" <<< "$EVENT")
   date_label=$(human_time_diff "$end_secs" {{ $config.item.upcoming.time_style | quote }})
-  meeting_type=$(meeting_type_by_url $(jq -r ".urls | .[]" <<< "$EVENT" | head -1))
+  meeting_type=$(meeting_type_by_event "$EVENT")
 
   label_text="Now: $title ($date_label remaining)" 
   if [[ "$meeting_type" == "teams" ]]; then

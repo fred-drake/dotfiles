@@ -1,4 +1,20 @@
-#!/bin/bash
+# From a given event JSON object, pull the meeting type.
+# It will check each URL and return default if no URLs
+# can infer the type, otherwise will return the inferred
+# type of the first URL it can.
+meeting_type_by_event() {
+  local event=$1
+  local urls=$(jq -r ".urls | .[]" <<< "$event")
+  local type="default"
+  for row in $(jq -r ".urls | .[]" <<< "$event"); do
+    if [[ "$type" = "default" ]]; then
+      type=$(meeting_type_by_url "$row")
+    fi
+  done
+
+  echo $type
+}
+
 
 # From a given URL, infer the type of meeting:
 #   teams   - Microsoft Teams
@@ -31,7 +47,7 @@ meeting_type_by_url() {
 human_time_diff() {
   local future_seconds=$1
   local type=${2:-short}
-  local time_diff=$[$future_seconds-$(date +"%s")]
+  local time_diff=$[$future_seconds-$(date +"%s") + 60]
 
   if [ $time_diff -lt "1" ]; then
     echo "now"
