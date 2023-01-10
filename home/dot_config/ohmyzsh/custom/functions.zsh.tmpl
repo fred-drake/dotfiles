@@ -14,6 +14,7 @@ agee() {
   age -e -o "$2 " -i ~/.age/personal-key.txt -r age1ffag60kk9es84dk2yg7ppax6ygmg7a34hpve86d8w8l40k4fj3tq2zqxjg "$1"
 }
 
+# From a given namespace, list all resources tied to it (for when removing namespace is hanging)
 kresources() {
   NAMESPACE=$1
   kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n $NAMESPACE
@@ -24,6 +25,7 @@ kresources() {
   )
 }
 
+# Convenience function to call restic
 rstc() {
   if [ -z "${AWS_ACCESS_KEY_ID}" ]; then
     echo "AWS_ACCESS_KEY_ID not defined!"
@@ -38,6 +40,7 @@ rstc() {
   fi
 }
 
+# Convenience function for restic calls to my k8s cluster backup
 rstc_k8s() {
   if [[ -z "${AWS_ACCESS_KEY_ID}" ]]; then
     echo "AWS_ACCESS_KEY_ID not defined!"
@@ -47,5 +50,30 @@ rstc_k8s() {
     echo "RESTIC_PASSWORD not defined!"
   else
     restic --password-command "echo ${RESTIC_PASSWORD}" -r s3:https://minio-backup.internal.freddrake.com/$1 ${@:2}
+  fi
+}
+
+# Extract archive based on file extension
+ex() {
+  if [[ -f $1 ]]; then
+    case $1 in
+      *.tar.bz2)  tar xjf $1     ;;
+      *.tar.gz)   tar xzf $1     ;;
+      *.bz2)      bunzip2 $1     ;;
+      *.rar)      unrar x $1     ;;
+      *.gz)       gunzip $1      ;;
+      *.tar)      tar xf $1      ;;
+      *.tbz2)     tar xjf $1     ;;
+      *.tgz)      tar xzf $1     ;;
+      *.zip)      unzip $1       ;;
+      *.Z)        uncompress $1  ;;
+      *.7z)       7z x $1        ;;
+      *.deb)      ar x $1        ;;
+      *.tar.xz)   tar xf $1      ;;
+      *.tar.zst)  unzstd $1      ;;
+      *)          echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
   fi
 }
