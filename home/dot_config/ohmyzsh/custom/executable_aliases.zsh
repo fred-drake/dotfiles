@@ -35,6 +35,12 @@ alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
 alias vi='lvim'
 alias infradocker='docker run -it --rm --name infrastructure -v ~/Source/github/fred-drake/infrastructure:/workspaces/infrastructure -v ~/.gnupg:/root/.gnupg infrastructure /bin/bash'
 alias ls='lsd'
+
 alias cm='chezmoi'
+alias cmu='chezmoi update'
+alias cma='chezmoi apply'
+
+alias cp='cp -i'
+alias df='df -h'
 
 alias main='tmux new-session -A -s main'
