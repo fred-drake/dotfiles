@@ -20,6 +20,7 @@ meeting_type_by_event() {
 #   teams   - Microsoft Teams
 #   webex   - Cisco Webex
 #   meet    - Google Meet
+#   zoom    - Zoom
 #   default - Either none, or cannot infer from URL
 meeting_type_by_url() {
   local url=$1
@@ -30,6 +31,9 @@ meeting_type_by_url() {
   fi
   if [[ $url =~ ".webex." ]]; then
     type="webex"
+  fi
+  if [[ $url =~ ".zoom.us" ]]; then
+    type="zoom"
   fi
   if [[ $url =~ "meet.google." ]]; then
     type="meet"

@@ -329,7 +329,7 @@ item:
     args:
 
       # Styles based on the meeting type (Microsoft Teams, Google Meet, 
-      # Cisco Webex, a default, and no meeting at all)
+      # Cisco Webex, Zoom, a default, and no meeting at all)
       meeting_type:
 
         # Upcoming meetings
@@ -345,6 +345,10 @@ item:
           webex:
             - icon=
             - icon.color=0xff0000ff
+            - icon.font={{ $default_symbol_font | quote }}
+          zoom:
+            - icon=Z
+            - icon.color=0xff2d8cff
             - icon.font={{ $default_symbol_font | quote }}
           meet:
             - icon=
@@ -373,6 +377,12 @@ item:
           webex:
             - icon=
             - icon.color=0xff0000ff
+            - icon.drawing=on
+            - label.drawing=on
+            - icon.font={{ $default_symbol_font | quote }}
+          zoom:
+            - icon=Z
+            - icon.color=0xff2d8cff
             - icon.drawing=on
             - label.drawing=on
             - icon.font={{ $default_symbol_font | quote }}
