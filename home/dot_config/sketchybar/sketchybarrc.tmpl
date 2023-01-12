@@ -24,9 +24,6 @@ sketchybar --bar                        \
               {{- end }}
 
 source "$ITEM_DIR/apple.sh"
-{{- if eq .chezmoi.os "darwin" }}
-source "$ITEM_DIR/brew.sh"
-{{- end }}
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
@@ -39,6 +36,9 @@ source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/vpn.sh"
 source "$ITEM_DIR/weather.sh"
 source "$ITEM_DIR/uptime_kuma.sh"
+{{- if eq .chezmoi.os "darwin" }}
+source "$ITEM_DIR/brew.sh"
+{{- end }}
 source "$ITEM_DIR/worldtime.sh"
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
