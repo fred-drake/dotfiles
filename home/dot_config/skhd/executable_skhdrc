@@ -106,6 +106,9 @@
 # ]
 
 
+# Set audio output and input
+shift + alt - 0 : ~/bin/toggle_audio.sh
+
 # focus or open specific applications
 alt - a : ~/.config/skhd/focus-window.sh "Alacritty" "/Applications/Alacritty.app/"
 alt - b : ~/.config/skhd/focus-window.sh "Brave Browser" "/Applications/Brave Browser.app/"
@@ -243,4 +246,3 @@ shift + alt - f : yabai -m window --toggle native-fullscreen
 # float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
-

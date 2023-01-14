@@ -1,0 +1,38 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+{{- if $config.item.audio.enabled -}}
+
+sketchybar -m                                            \
+    --add event audio_update                 \
+{{- range $orderitem := $config.item.audio.display_order }}
+  {{- if eq $orderitem "input" }}
+    --add item audio_input {{ $config.item.audio.position }}   \
+        --set audio_input                   \
+            script="$HOME/.config/sketchybar/plugins/audio/audio.sh"  \
+            {{- range $config.item.audio.args.input.defaults }}
+            {{ . }} \
+            {{- end }}
+        --subscribe audio_input audio_update              \
+  {{- else if eq $orderitem "output" }}
+    --add item audio_output {{ $config.item.audio.position }}   \
+        --set audio_output                   \
+            script="$HOME/.config/sketchybar/plugins/audio/audio.sh"  \
+            {{- range $config.item.audio.args.output.defaults }}
+            {{ . }} \
+            {{- end }}
+        --subscribe audio_output audio_update              \
+  {{- else if eq $orderitem "separator" }}
+    --add item audio_separator {{ $config.item.audio.position }}   \
+        --set audio_separator                   \
+            {{- range $config.item.audio.args.separator }}
+            {{ . }} \
+            {{- end }}
+  {{- end }}
+{{- end }}
+                                                              \
+    --add bracket audio_bracket  '/audio_.*/'                \
+        --set audio_bracket \
+            {{- range $config.item.audio.args.bracket }}
+            {{ . }} \
+            {{- end }}
+
+{{- end }}

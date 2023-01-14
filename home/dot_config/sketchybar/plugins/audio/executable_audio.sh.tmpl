@@ -1,0 +1,49 @@
+{{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
+#!/bin/bash
+
+OUTPUT_SET=0
+INPUT_SET=0
+if [[ "$NAME" = "audio_input" ]]; then
+  DEVICE=$(SwitchAudioSource -c -t input)
+{{- range $key, $value := $config.item.audio.args.input }}
+{{- if not (eq $key "defaults") }}
+  if [[ "$DEVICE" = "{{ $key }}" ]]; then
+    INPUT_SET=1
+    sketchybar -m --set audio_input \
+    {{- range $setting := $value }}
+      {{ $setting }} \
+    {{- end }}
+  
+  fi
+{{- end }}
+{{- end }}
+  if [[ "$INPUT_SET" = "0" ]]; then
+    sketchybar -m --set audio_input \
+    {{- range $setting := $config.item.audio.args.input.defaults }}
+      {{ $setting }} \
+    {{- end }}
+  
+  fi
+else
+  DEVICE=$(SwitchAudioSource -c -t output)
+{{- range $key, $value := $config.item.audio.args.output }}
+{{- if not (eq $key "defaults") }}
+  if [[ "$DEVICE" = "{{ $key }}" ]]; then
+    OUTPUT_SET=1
+    sketchybar -m --set audio_output \
+    {{- range $setting := $value }}
+      {{ $setting }} \
+    {{- end }}
+  
+  fi
+{{- end }}
+{{- end }}
+  if [[ "$OUTPUT_SET" = "0" ]]; then
+    sketchybar -m --set audio_input \
+    {{- range $setting := $config.item.audio.args.output.defaults }}
+      {{ $setting }} \
+    {{- end }}
+  
+  fi
+fi
+

@@ -39,6 +39,7 @@ source "$ITEM_DIR/uptime_kuma.sh"
 {{- if eq .chezmoi.os "darwin" }}
 source "$ITEM_DIR/brew.sh"
 {{- end }}
+source "$ITEM_DIR/audio.sh"
 source "$ITEM_DIR/worldtime.sh"
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
