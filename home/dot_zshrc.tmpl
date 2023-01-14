@@ -77,10 +77,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
-source $HOME/.config/ohmyzsh/custom/variables.zsh
-source $HOME/.config/ohmyzsh/custom/functions.zsh
-source $HOME/.config/ohmyzsh/custom/functions-private.zsh
-source $HOME/.config/ohmyzsh/custom/aliases.zsh
+export XDG_CONFIG_HOME=$HOME/.config
+
+source $XDG_CONFIG_HOME/ohmyzsh/custom/variables.zsh
+source $XDG_CONFIG_HOME/ohmyzsh/custom/functions.zsh
+source $XDG_CONFIG_HOME/ohmyzsh/custom/functions-private.zsh
+source $XDG_CONFIG_HOME/ohmyzsh/custom/aliases.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
