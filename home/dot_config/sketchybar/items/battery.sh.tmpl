@@ -8,5 +8,5 @@ sketchybar -m                                                \
             {{- range $config.item.battery.args }}
             {{ . }} \
             {{- end }}
-
+        --subscribe battery power_source_change
 {{- end }}
