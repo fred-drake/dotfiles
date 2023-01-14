@@ -1,0 +1,20 @@
+{{- $secret := joinPath .chezmoi.sourceDir "dot_config/spotifyd/ignored_secrets.yaml.age" | include | decrypt | fromYaml -}}
+[global]
+username = "{{ $secret.username }}"
+password = "{{ $secret.password }}"
+
+device_name = "mac-studio"
+device_type = "computer"
+
+cache_path = "/Users/fdrake/Library/Application Support/Spotify/PersistentCache/Storage"
+no_audio_cache = false
+
+bitrate = 320
+# volume_normalisation = true
+# normalisation_pregain = -10
+
+backend = "rodio"
+mixer = "PCM"
+volume_controller = "softvol"
+zeroconf_port = 1234
+
