@@ -1,4 +1,4 @@
-{{- $secret := joinPath .chezmoi.sourceDir "dot_config/spotifyd/ignored_secrets.yaml.age" | include | decrypt | fromYaml -}}
+{{- $secret := joinPath .chezmoi.sourceDir "dot_config/spotifyd/encrypted_secrets.yaml" | include | decrypt | fromYaml -}}
 [global]
 username = "{{ $secret.username }}"
 password = "{{ $secret.password }}"

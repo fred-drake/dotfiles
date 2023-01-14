@@ -1,5 +1,5 @@
 {{- $config := joinPath .chezmoi.homeDir ".config/sketchybar/config.yaml" | include | fromYaml -}}
-{{- $secret := joinPath .chezmoi.sourceDir "dot_config/sketchybar/ignored_secrets.yaml.age" | include | decrypt | fromYaml -}}
+{{- $secret := joinPath .chezmoi.sourceDir "dot_config/sketchybar/encrypted_secrets.yaml" | include | decrypt | fromYaml -}}
 #!/bin/zsh
 
 API_KEY="{{ $secret.item.weather.api_key }}"
