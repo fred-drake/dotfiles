@@ -3,7 +3,13 @@
 username = "{{ $secret.username }}"
 password = "{{ $secret.password }}"
 
+{{- if .type.macbook }}
+device_name = "macbook"
+{{- else if .type.studio }}
 device_name = "mac-studio"
+{{- else }}
+device_name = "unknown"
+{{- end }}
 device_type = "computer"
 
 cache_path = "/Users/fdrake/Library/Application Support/Spotify/PersistentCache/Storage"
