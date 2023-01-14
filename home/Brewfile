@@ -20,14 +20,16 @@ brew "age"
 brew "ansible"
 # Python code formatter
 brew "black"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Linter for YAML files
 brew "yamllint"
 # Checks ansible playbooks for practices and behaviour
 brew "ansible-lint"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Command-line tool for interacting with the balenaCloud and balena API
+brew "balena-cli"
 # Platform built on V8 to build network applications
 brew "node"
 # Secure and free password manager for all of your devices
@@ -158,6 +160,10 @@ brew "ripgrep"
 brew "rust"
 # Editor of encrypted files
 brew "sops"
+# Terminal-based client for Spotify
+brew "spotify-tui"
+# Spotify daemon
+brew "spotifyd", restart_service: true
 # Test SSL/TLS enabled services to discover supported cipher suites
 brew "sslscan"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
