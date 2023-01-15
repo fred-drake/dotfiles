@@ -116,6 +116,8 @@ brew "jq"
 brew "jsonschema"
 # Utility to create k3s clusters on any local or remote VM
 brew "k3sup"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Tool that can switch between kubectl contexts easily and create aliases
