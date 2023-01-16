@@ -87,7 +87,7 @@ item:
   # Display current input and output device
   audio:
     position: right
-  {{- if .type.macbook }}
+  {{- if .attr.laptop }}
     enabled: false
   {{- else }}
     enabled: true
@@ -141,7 +141,7 @@ item:
   # The amount of charge remaining on the battery.
   battery:
     position: right
-  {{- if .type.macbook }}
+  {{- if .attr.battery }}
     enabled: true
   {{- else }}
     enabled: false
@@ -194,7 +194,7 @@ item:
 
   # Displays the application name of the window with the current focus.
   front_app:
-  {{- if .type.macbook }}
+  {{- if .attr.laptop }}
     enabled: false
   {{- else }}
     enabled: true
@@ -219,7 +219,7 @@ item:
   # a space.
   spaces:
     position: left
-  {{- if .type.macbook }}
+  {{- if .attr.laptop }}
     enabled: false
   {{- else }}
     enabled: true
@@ -372,7 +372,7 @@ item:
   # have a meeting in progress.
   upcoming:
     enabled: true
-  {{- if .type.macbook }}
+  {{- if .attr.laptop }}
     position: left
     time_style: short
   {{- else }}
@@ -472,7 +472,7 @@ item:
     metrics_url: https://uptime-kuma.internal.freddrake.com/metrics
     # Use ${UP} for services that are currently up, ${DOWN} for down services, and ${TOTAL} for total services
     label_format:
-  {{- if .type.macbook }}
+  {{- if .attr.laptop }}
       up: ""
       down: "${UP} / ${TOTAL}"
   {{- else }}

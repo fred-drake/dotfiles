@@ -3,10 +3,10 @@
 username = "{{ $secret.username }}"
 password = "{{ $secret.password }}"
 
-{{- if .type.macbook }}
-device_name = "macbook"
-{{- else if .type.studio }}
-device_name = "mac-studio"
+{{- if eq .type "macbook" }}
+device_name = "Macbook Air"
+{{- else if eq .type "studio" }}
+device_name = "Mac Studio"
 {{- else }}
 device_name = "unknown"
 {{- end }}

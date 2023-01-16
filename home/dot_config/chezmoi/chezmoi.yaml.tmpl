@@ -1,8 +1,41 @@
+{{- /* Template file for chezmoi config file */ -}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
+{{- $agekey := false -}}{{/* true if this machine has agekey to decrypt secret */}}
+{{- $laptop := false -}}{{/* true if this machine is a laptop */}}
+{{- $battery := false -}}{{/* true if this machine runs on battery power */}}
+
+{{- /* Get machine ID from file originally created as a run script */ -}}
+{{- $machineIDFile := joinPath .chezmoi.homeDir "/.config/chezmoi/machine_id.yaml" }}
+{{- $machineID := include $machineIDFile | fromYaml }}
+
+{{- /* Cross reference machine ID with machine type, in the encrypted identifiers YAML file */ -}}
+{{- $machineIDs := joinPath .chezmoi.sourceDir "dot_config/chezmoi/encrypted_machine_identifiers.yaml" | include | decrypt | fromYaml -}}
+{{- $machineType := "unknown" }}
+{{- if hasKey $machineIDs.ids $machineID.id }}
+{{-   $machineType = get $machineIDs.ids $machineID.id }}
+{{- end }}
+
+{{- if eq $machineType "macbook" }}
+{{-   $kubernetes = true }}
+{{-   $agekey = true }}
+{{-   $battery = true }}
+{{-   $laptop = true }}
+{{- end }}
+{{- if eq $machineType "studio" }}
+{{-   $kubernetes = true }}
+{{-   $agekey = true }}
+{{- end -}}
+
 encryption: age
 age:
   identity: ~/.age/personal-key.txt
   recipient: age1ffag60kk9es84dk2yg7ppax6ygmg7a34hpve86d8w8l40k4fj3tq2zqxjg
 data:
-  type:
-    macbook: {{ .chezmoi.hostname | lower | contains "macbook" }}
-    studio: {{ .chezmoi.hostname | lower | contains "studio" }}
+  type: {{ $machineType }}
+  attr:
+    headless: {{ $headless }}
+    kubernetes: {{ $kubernetes }}
+    agekey: {{ $agekey }}
+    battery: {{ $battery }}
+    laptop: {{ $laptop }}
