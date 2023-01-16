@@ -110,7 +110,7 @@
 shift + alt - 0 : ~/bin/toggle_audio.sh
 
 # focus or open specific applications
-alt - a : ~/.config/skhd/focus-window.sh "Alacritty" "/Applications/Alacritty.app/"
+alt - a : ~/.config/skhd/focus-window.sh "Kitty" "/Applications/Kitty.app/"
 alt - b : ~/.config/skhd/focus-window.sh "Brave Browser" "/Applications/Brave Browser.app/"
 alt - c : ~/.config/skhd/focus-window.sh "Google Chrome" "/Applications/Google Chrome.app/"
 alt - d : ~/.config/skhd/focus-window.sh "Discord" "/Applications/Discord.app/"
