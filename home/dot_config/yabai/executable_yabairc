@@ -54,7 +54,7 @@ yabai -m space 3 --label "Notes"
 yabai -m space 4 --label "Everything Else"
 
 # Space 1 = Focus for home
-yabai -m rule --add app="Kitty" space=1
+yabai -m rule --add app="Alacritty" space=1
 yabai -m rule --add app="Brave Browser" space=1
 
 # # Space 2 = Focus for work

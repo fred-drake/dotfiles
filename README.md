@@ -5,7 +5,7 @@ The goal is to have a single source of truth for personal machine configuration,
 ## Technologies used in these dotfiles
 
 - [Chezmoi](https://www.chezmoi.io/) for dotfiles management, using [AGE](https://github.com/FiloSottile/age) for secrets encryption
-- [Kitty](https://sw.kovidgoyal.net/kitty/) terminal emulator
+- [Alacritty](https://github.com/alacritty/alacritty) terminal emulator
 - [Lazygit](https://github.com/jesseduffield/lazygit) TUI for git management
 - [Lunarvim](https://www.lunarvim.org/) as my text and coding editor
 - ZSH instead of Bash, with the [Oh My Zsh](https://ohmyz.sh/) framework and [Powerlevel10K](https://github.com/romkatv/powerlevel10k) theme
