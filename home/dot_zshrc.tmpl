@@ -11,8 +11,9 @@ export ZSH=~/.oh-my-zsh
 
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_PREFIX=$(brew --prefix)
-export FOO="darwin"
 {{- end }}
+
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Load P10K theme
 {{- if eq .chezmoi.os "darwin" }}
