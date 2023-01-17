@@ -137,7 +137,7 @@ cmd - j : yabai -m window --focus prev
 cmd - k : yabai -m window --focus next
 
 # equalize size of windows
-shift + alt - 0 : yabai -m space --equalize
+shift + cmd - 0 : yabai -m space --balance
 
 # move application to window
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
