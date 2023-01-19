@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "linux" }}
+sketchybar
+skhd
+yabai
+{{- end }}
