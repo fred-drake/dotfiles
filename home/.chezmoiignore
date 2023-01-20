@@ -1,6 +1,7 @@
 Brewfile
 Brewfile.lock.json
 versions.yaml
+pacfile
 {{- if eq .chezmoi.os "linux" }}
 dot_appleConnect
 dot_finicky.js

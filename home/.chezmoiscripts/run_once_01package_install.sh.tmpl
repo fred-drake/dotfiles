@@ -4,7 +4,6 @@
 # Hash Brewfile {{ include $brewfile | sha256sum }}
 brew bundle --file {{ $brewfile }}
 {{- else }}
-  {{- $pacfile := joinPath .chezmoi.sourceDir "pacfile" -}}
-# Hash Pacfile {{ include $pacfile | sha256sum }}  
-pacman -S
+  {{- $pacfile := joinPath .chezmoi.sourceDir "pacfile" }}
+sudo pacman --noconfirm --needed -S - < {{ $pacfile }}
 {{- end }}
