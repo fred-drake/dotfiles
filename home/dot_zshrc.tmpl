@@ -17,9 +17,9 @@ export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Load P10K theme
 {{- if eq .chezmoi.os "darwin" }}
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $HOMEBREW_PREFIX/opt/powerlevel10k/powerlevel10k.zsh-theme
 {{- else }}
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 {{- end }}
 
 ZSH_WEB_SEARCH_ENGINES=(
