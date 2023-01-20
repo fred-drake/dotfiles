@@ -34,7 +34,7 @@ yabai -m config                                 \
     window_border                on             \
     split_ratio                  0.50           \
     split_type                   auto           \
-    auto_balance                 off            \
+    auto_balance                 on            \
     top_padding                  47             \
     bottom_padding               05             \
     left_padding                 05             \
@@ -60,8 +60,19 @@ yabai -m rule --add app="Brave Browser" space=1
 # # Space 2 = Focus for work
 yabai -m rule --add app="Google Chrome" space=2
 
-# # Space 3 = Notes
+# # Obsidian
+{{- if eq .type "studio" }}
+yabai -m rule --add app="Obsidian" space=8
+{{- else }}
 yabai -m rule --add app="Obsidian" space=3
+{{- end }}
+
+yabai -m rule --add app="Safari" space=3
+
+{{- if eq .type "studio" }}
+yabai -m rule --add app="Calendar" space=6
+yabai -m rule --add app="Mail" space=6
+{{- end }}
 
 # # Space 4 = Everything Else
 yabai -m rule --add app="Slack" space=4
