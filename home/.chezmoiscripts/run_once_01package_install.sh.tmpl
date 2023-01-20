@@ -1,0 +1,10 @@
+#!/bin/bash
+{{- if eq .chezmoi.os "darwin" }}
+  {{- $brewfile := joinPath .chezmoi.sourceDir "Brewfile" -}}
+# Hash Brewfile {{ include $brewfile | sha256sum }}
+brew bundle --file {{ $brewfile }}
+{{- else }}
+  {{- $pacfile := joinPath .chezmoi.sourceDir "pacfile" -}}
+# Hash Pacfile {{ include $pacfile | sha256sum }}  
+sudo pacman -S - < $pacfile
+{{- end }}
