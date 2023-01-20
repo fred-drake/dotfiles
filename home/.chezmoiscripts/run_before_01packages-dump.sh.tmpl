@@ -10,4 +10,5 @@ brew bundle dump --describe --file {{ $brewfile }} --force
   {{- if (not (stat $pacfile)) }}
 echo "Dumping pacman packages to pacfile..."
 pacman -Qqen > {{ $pacfile }}
+  {{- end }}
 {{- end }}
