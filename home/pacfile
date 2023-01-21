@@ -6,6 +6,7 @@ automake
 base
 binutils
 bison
+bitwarden
 chezmoi
 debugedit
 dhclient
@@ -30,6 +31,8 @@ i3-wm
 i3blocks
 i3lock
 i3status
+lazygit
+lf
 libtool
 linux
 linux-firmware
@@ -44,9 +47,13 @@ patch
 pkgconf
 python
 reflector
+ripgrep
+rust
 sed
+sops
 sudo
 texinfo
+tmux
 vim
 which
 wpa_supplicant
@@ -101,4 +108,5 @@ xorg-xwininfo
 xorg-xwud
 zsh
 zsh-completions
+zsh-syntax-highlighting
 zsh-theme-powerlevel10k
