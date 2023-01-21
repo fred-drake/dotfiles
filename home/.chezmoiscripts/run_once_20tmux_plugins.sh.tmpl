@@ -3,5 +3,5 @@
 #!/bin/bash
 # Hash directory {{ $versions.checksums.tmux }}
 echo "Installing Tmux Plugins..."
-{{ $tpm_dir }}/scripts/install_plugins.sh
+TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins {{ $tpm_dir }}/scripts/install_plugins.sh
 

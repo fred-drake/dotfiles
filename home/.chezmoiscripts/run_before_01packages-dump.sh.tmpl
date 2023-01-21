@@ -7,8 +7,11 @@ brew bundle dump --describe --file {{ $brewfile }} --force
   {{- end }}
 {{- else }}
   {{- $pacfile := joinPath .chezmoi.sourceDir "pacfile" -}}
-  {{- if (not (stat $pacfile)) }}
+  {{- $yayfile := joinPath .chezmoi.sourceDir "yayfile" -}}
+  {{- if (or (not (stat $pacfile)) (not (stat $yayfile))) }}
 echo "Dumping pacman packages to pacfile..."
 pacman -Qqen > {{ $pacfile }}
+echo "Dumping yay packages to yayfile..."
+pacman -Qqme > {{ $yayfile }}
   {{- end }}
 {{- end }}

@@ -40,7 +40,10 @@ lsd
 lvm2
 m4
 make
+neovim
 netctl
+nodejs
+npm
 openssh
 pacman
 patch
