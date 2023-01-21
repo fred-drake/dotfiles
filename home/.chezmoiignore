@@ -5,4 +5,6 @@ pacfile
 {{- if eq .chezmoi.os "linux" }}
 dot_appleConnect
 dot_finicky.js
+{{- else }}
+dot_xinitrc
 {{- end }}
