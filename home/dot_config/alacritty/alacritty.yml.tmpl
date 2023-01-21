@@ -27,7 +27,11 @@ font:
   bold_italic:
     family: MesloLGS NF
     style: Bold Italic
+{{- if eq .chezmoi.os "darwin" }}
   size: 14.0
+{{- else }}
+  size: 6.0
+{{- end }}
 
 cursor:
   style:
