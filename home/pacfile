@@ -1,6 +1,7 @@
 alacritty
 alsa-utils
 ansible
+ansible-lint
 archlinux-keyring
 autoconf
 automake
