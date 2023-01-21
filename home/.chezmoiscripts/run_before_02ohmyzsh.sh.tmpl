@@ -1,0 +1,12 @@
+{{- $omz_dir := joinPath .chezmoi.homeDir ".oh-my-zsh" }}
+{{- $omz_custom_plugin_dir := joinPath $omz_dir "custom/plugins" -}}
+#!/bin/bash
+{{- if (not (stat $omz_dir)) }}
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+{{- end }}
+{{- if (not (stat (joinPath $omz_custom_plugin_dir "zsh-autosuggestions"))) }}
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+{{- end }}
+{{- if (not (stat (joinPath $omz_custom_plugin_dir "zsh-syntax-highlighting"))) }}
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+{{- end }}
