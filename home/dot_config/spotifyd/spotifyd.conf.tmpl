@@ -7,19 +7,30 @@ password = "{{ $secret.password }}"
 device_name = "Macbook Air"
 {{- else if eq .type "studio" }}
 device_name = "Mac Studio"
+{{- else if eq .type "devone" }}
+device_name = "Dev One"
 {{- else }}
 device_name = "unknown"
 {{- end }}
 device_type = "computer"
 
-cache_path = "/Users/fdrake/Library/Application Support/Spotify/PersistentCache/Storage"
+
+{{- if eq .chezmoi.os "darwin" }}
+cache_path = {{ joinPath .chezmoi.homeDir "Library/Application Support/Spotify/PersistentCache/Storage" | quote }}
+{{- else }}
+cache_path = {{ joinPath .chezmoi.homeDir ".cache/spotifyd" | quote }}
+{{- end }}
 no_audio_cache = false
 
 bitrate = 320
 # volume_normalisation = true
 # normalisation_pregain = -10
 
+{{- if eq .chezmoi.os "darwin" }}
 backend = "rodio"
+{{- else }}
+backend = "pulseaudio"
+{{- end }}
 mixer = "PCM"
 volume_controller = "softvol"
 zeroconf_port = 1234
