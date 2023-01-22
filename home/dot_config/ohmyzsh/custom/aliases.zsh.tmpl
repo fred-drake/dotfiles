@@ -44,3 +44,10 @@ alias cp='cp -i'
 alias df='df -h'
 
 alias main='tmux new-session -A -s main'
+
+alias wg-tool='wg-tool --work_dir ~/.config/wg-tool'
+
+{{- if eq .chezmoi.os "linux" }}
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+{{- end }}
