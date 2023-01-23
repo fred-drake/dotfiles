@@ -107,6 +107,5 @@ eval "$(direnv hook zsh)"
 
 ## eval "$(zoxide init zsh)"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Volumes/External/Users/fdrake/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Put our personal bin ahead of everything else
+export PATH="$HOME/bin:$PATH"
