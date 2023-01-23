@@ -2,4 +2,8 @@
 sketchybar
 skhd
 yabai
+{{- else }}
+i3
+redshift
+polybar
 {{- end }}
