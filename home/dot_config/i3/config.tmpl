@@ -197,3 +197,11 @@ exec ~/.config/polybar/launch.sh &
 exec albert &
 exec feh --bg-fill ~/Wallpapers/wall.jpg
 exec dunst &
+
+# Start applications on their respective workspaces
+exec --no-startup-id i3-msg "workspace $ws1; exec alacritty"
+exec --no-startup-id i3-msg "workspace $ws2; exec brave"
+exec --no-startup-id i3-msg "workspace $ws3; exec google-chrome-stable"
+exec --no-startup-id i3-msg "workspace $ws4; exec slack"
+exec --no-startup-id i3-msg "workspace $ws5; exec discord"
+exec --no-startup-id i3-msg "workspace $ws6; exec obsidian"
