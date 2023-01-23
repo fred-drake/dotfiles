@@ -1,0 +1,4 @@
+{{- if not (eq .type "devone") }}
+devone
+{{- end }}
+
