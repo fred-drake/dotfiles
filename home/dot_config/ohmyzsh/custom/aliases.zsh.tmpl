@@ -1,7 +1,9 @@
+{{- if eq .chezmoi.os "darwin" }}
 alias dnsflush="sudo killall -HUP mDNSResponder"
 alias flushdns="dnsflush"
-alias restartkiosk='ssh kiosk "sudo systemctl stop kiosk.service && sudo systemctl start kiosk.service"'
 alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
+{{- end }}
+alias restartkiosk='ssh kiosk "sudo systemctl stop kiosk.service && sudo systemctl start kiosk.service"'
 #alias k='kubectl'
 #alias kga='kubectl get all'
 #alias kgpo='kubectl get pods'
