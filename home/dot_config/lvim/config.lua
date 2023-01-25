@@ -21,6 +21,7 @@ lvim.builtin.which_key.mappings["o"] = {
 	d = { "<cmd>!sops -d -i %<CR><CR>", "Decrypt file" },
 	e = { "<cmd>!sops -e -i %<CR><CR>", "Encrypt file" },
 }
+lvim.builtin.which_key.mappings["K"] = { vim.lsp.buf.hover, "Hover Documentation" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
