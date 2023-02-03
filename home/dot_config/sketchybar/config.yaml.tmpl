@@ -13,8 +13,9 @@
 
 {{- /* Defaults */ -}}
 {{- $default_padding := 3 -}}
-{{- $default_symbol_font := "MesloLGS NF:Bold:20.0" -}}
-{{- $default_text_font := "SF Mono Nerd Font:Regular:15.0" -}}
+{{- $default_symbol_font := "Hack Nerd Font Mono:Bold:20.0" -}}
+{{- $default_symbol_font_smaller := "Hack Nerd Font Mono:Bold:15.0" -}}
+{{- $default_text_font := "JetBrainsMonoNL Nerd Font Mono:Regular:15.0" -}}
 
 #
 # Sketchybar YAML configuration
@@ -102,7 +103,7 @@ item:
           - update_freq=60
           - label.drawing=off
           - icon=?
-          - icon.font="MesloLGS NF:Bold:15.0"
+          - icon.font="{{ $default_symbol_font_smaller }}"
           - background.padding_right=0
           - background.padding_left=0
           - icon.padding_left=5
@@ -117,7 +118,7 @@ item:
           - update_freq=60
           - label.drawing=off
           - icon=?
-          - icon.font="MesloLGS NF:Bold:15.0"
+          - icon.font="{{ $default_symbol_font_smaller }}"
           - background.padding_right=0
           - background.padding_left=0
           - icon.padding_left=5
@@ -129,7 +130,7 @@ item:
           - icon=蓼
       separator:
         - icon="|" 
-        - icon.font="MesloLGS NF:Bold:15.0"
+        - icon.font="{{ $default_symbol_font_smaller }}"
         - background.padding_right=0
         - background.padding_left=0
         - icon.padding_left=0
@@ -248,7 +249,7 @@ item:
         - icon.padding_left=10
         - icon.padding_right=15
         - icon.highlight_color={{ $magenta }}
-        - icon.font="MesloLGS NF:Bold:13.0"
+        - icon.font="{{ $default_symbol_font_smaller }}"
         - background.padding_left=2
         - background.padding_right=0
         - label.padding_right=16
@@ -277,25 +278,25 @@ item:
     args:
       cpu_label:
         - label="CPU"
-        - label.font="SF Mono Nerd Font:Bold:8"
+        - label.font="Hack Nerd Font Mono:Bold:8"
         - align=center
         - background.padding_right=8
         - y_offset=6
         - width=0
       cpu_percent:
-        - label.font="SF Mono Nerd Font:Bold:12"
+        - label.font="Hack Nerd Font Mono:Bold:12"
         - y_offset=-4
         - update_freq=2
         - width=25
       mem_label:
         - label="Mem"
-        - label.font="SF Mono Nerd Font:Bold:8"
+        - label.font="Hack Nerd Font Mono:Bold:8"
         - align=center
         - background.padding_right=17
         - y_offset=6
         - width=0
       mem_percent:
-        - label.font="SF Mono Nerd Font:Bold:12"
+        - label.font="Hack Nerd Font Mono:Bold:12"
         - background.padding_right=10
         - y_offset=-4
         - update_freq=5
@@ -310,7 +311,7 @@ item:
     args:
       time_top:
         - update_freq=1
-        - label.font="SF Mono Nerd Font:Bold:8.0"
+        - label.font="Hack Nerd Font Mono:Bold:8.0"
         - background.padding_right=28
         - y_offset=9
         - width=0
@@ -737,12 +738,12 @@ item:
             - label.padding_right=65
     args:
       worldtime_label:
-        - label.font="SF Mono Nerd Font:Bold:8"
+        - label.font="Hack Nerd Font Mono:Bold:8"
         - align=center
         - y_offset=6
         - width=0
       worldtime_timestamp:
-        - label.font="SF Mono Nerd Font:Bold:12"
+        - label.font="Hack Nerd Font Mono:Bold:13"
         - y_offset=-4
         - width=30
         - update_freq=2
