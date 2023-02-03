@@ -7,10 +7,13 @@ archlinux-keyring
 autoconf
 automake
 base
+bat
 binutils
 bison
 bitwarden
 chezmoi
+cups
+cups-pdf
 debugedit
 dhclient
 dhcpcd
@@ -20,6 +23,7 @@ dmenu
 docker
 dunst
 efibootmgr
+exa
 fakeroot
 feh
 file
@@ -33,11 +37,13 @@ gcc
 gettext
 gimp
 git
+go-yq
 grep
 groff
 grub
 gzip
 helm
+hplip
 htop
 i3-wm
 i3blocks

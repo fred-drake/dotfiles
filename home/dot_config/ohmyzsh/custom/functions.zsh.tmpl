@@ -77,3 +77,9 @@ ex() {
     echo "'$1' is not a valid file"
   fi
 }
+
+# CD into directory and list files
+cx() {
+  cd "$1"
+  exa -l --icons --git -a -r -t modified
+}

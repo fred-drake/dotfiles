@@ -8,6 +8,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export ZSH_CUSTOM=$ZSH/custom
 
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_PREFIX=$(brew --prefix)
@@ -31,31 +32,13 @@ ZSH_WEB_SEARCH_ENGINES=(
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+plugins=(
 {{ if eq .chezmoi.os "darwin" -}}
-plugins=(
-  git
-  ruby
-  golang
-  scala
-  gem
-  history
-  zsh-syntax-highlighting
-  history-substring-search
-  brew
-  nanoc
-  kubectl
-  zsh-autosuggestions
   macos
-  web-search
-  sudo
-  dirhistory
-  docker
-  docker-compose
-)
-{{- else }}
-
-plugins=(
+  brew
+{{- end }}
   git
+  z
   ruby
   golang
   scala
@@ -71,15 +54,23 @@ plugins=(
   dirhistory
   docker
   docker-compose
+  auto-notify
+  you-should-use
+  zsh-vi-mode
 )
 
-{{- end }}
+# Auto-notify settings (https://github.com/MichaelAquilina/zsh-auto-notify)
+export AUTO_NOTIFY_THRESHOLD=20
+
+# VI Mode settings (https://github.com/jeffreytse/zsh-vi-mode)
+export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+export ZVM_VI_ESCAPE_BINDKEY=jk
 
 source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 export XDG_CONFIG_HOME=$HOME/.config
-
 source $XDG_CONFIG_HOME/ohmyzsh/custom/variables.zsh
 source $XDG_CONFIG_HOME/ohmyzsh/custom/functions.zsh
 source $XDG_CONFIG_HOME/ohmyzsh/custom/functions-private.zsh
@@ -91,21 +82,7 @@ source $XDG_CONFIG_HOME/ohmyzsh/custom/lf-config.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#export POWERLEVEL9K_INSTANT_PROMPT=off
-#neofetch
-
 eval "$(direnv hook zsh)"
-## export PATH="/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool:$PATH"
-
-## export VOLTA_HOME="$HOME/.volta"
-## export PATH="$VOLTA_HOME/bin:$PATH"
-
-## if [ "$SYSTEM" = "Darwin" ]; then
-  ## eval "$(pyenv init -)"
-  ## eval "$(pyenv virtualenv-init -)"
-## fi
-
-## eval "$(zoxide init zsh)"
 
 # Put our personal bin ahead of everything else
 export PATH="$HOME/bin:$PATH"
