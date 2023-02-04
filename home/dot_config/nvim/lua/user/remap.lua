@@ -28,8 +28,8 @@ km.set("n", "<leader>x", ":close<CR>") -- close split window
 -- tab manipulation
 km.set("n", "<leader>to", ":tabnew<CR>") -- create new tab
 km.set("n", "<leader>c", ":tabclose<CR>") -- close tab
-km.set("n", "<Tab>", ":tabn<CR>") -- next tab
-km.set("n", "<S-Tab>", ":tabp<CR>") -- previoustab
+km.set("n", "<Tab>", ":bnext<CR>") -- next tab
+km.set("n", "<S-Tab>", ":bprevious<CR>") -- previoustab
 
 -- toggle maximizer
 km.set("n", "<leader>m", ":MaximizerToggle<CR>")

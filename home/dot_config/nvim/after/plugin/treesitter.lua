@@ -32,4 +32,10 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  -- For nvim-ts-context-commentstring enablement
+  require'nvim-treesitter.configs'.setup {
+      context_commentstring = {
+        enable = true
+      },
+    }
 }

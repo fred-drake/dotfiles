@@ -7,7 +7,6 @@ lsp.ensure_installed({
     'ansiblels',
 	'tsserver',
 	'eslint',
-	'sumneko_lua',
 	'rust_analyzer',
 })
 

@@ -69,4 +69,44 @@ use({
 })
 use {"onsails/lspkind.nvim"}
 
+use {"jose-elias-alvarez/null-ls.nvim"}
+
+use {"folke/neodev.nvim"}
+
+use {"windwp/nvim-autopairs"}
+
+use {"JoosepAlviste/nvim-ts-context-commentstring"}
+
+use {'lewis6991/gitsigns.nvim'}
+
+use {
+  "folke/which-key.nvim",
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+    }
+  end
+}
+
+use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
+use {'mfussenegger/nvim-dap'}
+
+use {'rcarriga/nvim-dap-ui'}
+
+use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+}
+
+use {"b0o/schemastore.nvim"}
+
+use {"rrethy/vim-illuminate"}
+
+use {"lukas-reineke/indent-blankline.nvim"}
+
 end)
