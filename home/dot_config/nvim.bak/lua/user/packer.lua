@@ -70,6 +70,7 @@ use({
 use {"onsails/lspkind.nvim"}
 
 use {"jose-elias-alvarez/null-ls.nvim"}
+use {"jay-babu/mason-null-ls.nvim"}
 
 use {"folke/neodev.nvim"}
 
