@@ -15,6 +15,7 @@ chezmoi
 cups
 cups-pdf
 debugedit
+delve
 dhclient
 dhcpcd
 direnv
@@ -99,9 +100,11 @@ thefuck
 tldr
 tmux
 ttf-iosevka-nerd
+unzip
 vim
 vlc
 vulkan-radeon
+wget
 which
 wireguard-tools
 wmctrl
