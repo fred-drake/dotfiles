@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+  {{- $yayfile := joinPath .chezmoi.sourceDir "yayfile" -}}
+  {{- if (not (stat $yayfile)) }}
+echo "Dumping yay packages to yayfile..."
+pacman -Qqme > {{ $yayfile }}
+  {{- end }}
+{{- end }}
