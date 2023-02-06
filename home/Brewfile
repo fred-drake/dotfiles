@@ -1,11 +1,13 @@
 tap "aws/tap"
 tap "buo/cask-upgrade"
+tap "delphinus/sfmono-square"
 tap "drone/drone"
 tap "epk/epk"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "hudochenkov/sshpass"
@@ -212,6 +214,8 @@ brew "yt-dlp"
 brew "zoxide"
 # AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
 brew "aws/tap/aws-sam-cli"
+# Square-sized SF Mono + Japanese fonts + nerd-fonts
+brew "delphinus/sfmono-square/sfmono-square"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
 # Packer
@@ -260,6 +264,8 @@ cask "drawio"
 cask "finicky"
 # Screen color temperature controller
 cask "flux"
+# Developer targeted fonts with a high number of glyphs
+cask "font-hack-nerd-font"
 cask "font-sf-mono-nerd-font"
 # Visual desktop tool suite for working with the Fuse framework
 cask "fuse"
