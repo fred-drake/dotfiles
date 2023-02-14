@@ -9,6 +9,7 @@
 {{- $machineIDFile := joinPath .chezmoi.homeDir "/machine_id" }}
 {{- $machineType := include $machineIDFile | toString }}
 
+
 {{- if eq $machineType "macbook" }}
 {{-   $kubernetes = true }}
 {{-   $agekey = true }}
