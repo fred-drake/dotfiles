@@ -15,3 +15,5 @@
 	defaultBranch = master
 [credential]
 	helper = store
+[pull]
+  rebase = true
