@@ -273,6 +273,8 @@ cask "fuse"
 cask "gimp"
 # Game client
 cask "gog-galaxy"
+# Go (golang) IDE
+cask "goland"
 # Web browser
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -371,6 +373,7 @@ mas "Reeder", id: 1449412482
 mas "RunCat", id: 1429033973
 mas "Slack", id: 803453959
 mas "Trello", id: 1278508951
+mas "UTM", id: 1538878817
 mas "Valet Car Control", id: 1438609932
 mas "VMware Remote Console", id: 1230249825
 mas "WireGuard", id: 1451685025
