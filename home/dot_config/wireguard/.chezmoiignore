@@ -1,4 +1,7 @@
 {{- if not (eq .type "devone") }}
 devone
 {{- end }}
+{{- if not (eq .type "macbookpro") }}
+macbookpro
+{{- end }}
 
