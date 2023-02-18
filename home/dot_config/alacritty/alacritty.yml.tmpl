@@ -1,3 +1,4 @@
+{{- $font := "Hack Nerd Font" -}}
 window:
   padding:
     x: 5
@@ -16,16 +17,16 @@ window:
 font:
   builtin_box_drawing: true
   normal:
-    family: MesloLGS NF
+    family: {{ $font }}
     style: Regular
   bold:
-    family: MesloLGS NF
+    family: {{ $font }}
     style: Bold
   italic:
-    family: MesloLGS NF
+    family: {{ $font }}
     style: Italic
   bold_italic:
-    family: MesloLGS NF
+    family: {{ $font }}
     style: Bold Italic
 {{- if eq .chezmoi.os "darwin" }}
   size: 14.0

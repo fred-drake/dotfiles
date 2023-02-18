@@ -88,7 +88,7 @@ item:
   # Display current input and output device
   audio:
     position: right
-  {{- if eq .type "macbook" }}
+  {{- if or (eq .type "macbook") (eq .type "macbookpro") }}
     enabled: false
   {{- else }}
     enabled: true
@@ -195,7 +195,7 @@ item:
 
   # Displays the application name of the window with the current focus.
   front_app:
-  {{- if .attr.laptop }}
+  {{- if or .attr.laptop (eq .type "macbook") (eq .type "macbookpro") }}
     enabled: false
   {{- else }}
     enabled: true
@@ -377,8 +377,13 @@ item:
   {{- else }}
     enabled: true
   {{- end }}
+  {{- if eq .type "macbookpro" }}
+    position: left
+    time_style: short
+  {{- else }}
     position: center
     time_style: long
+  {{- end }}
     args:
 
       # Styles based on the meeting type (Microsoft Teams, Google Meet, 

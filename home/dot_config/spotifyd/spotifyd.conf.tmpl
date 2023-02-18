@@ -5,6 +5,8 @@ password = "{{ $secret.password }}"
 
 {{- if eq .type "macbook" }}
 device_name = "Macbook Air"
+{{- else if eq .type "macbookpro" }}
+device_name = "Macbook Pro"
 {{- else if eq .type "studio" }}
 device_name = "Mac Studio"
 {{- else if eq .type "devone" }}

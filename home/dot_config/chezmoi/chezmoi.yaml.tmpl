@@ -10,7 +10,7 @@
 {{- $machineType := include $machineIDFile | toString }}
 
 
-{{- if eq $machineType "macbook" }}
+{{- if or (eq $machineType "macbook") (eq $machineType "macbookpro")  }}
 {{-   $kubernetes = true }}
 {{-   $agekey = true }}
 {{-   $battery = true }}
