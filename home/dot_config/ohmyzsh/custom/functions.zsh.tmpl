@@ -36,7 +36,8 @@ rstc() {
   elif [ -z "${RESTIC_REPOSITORY}" ]; then
     echo "RESTIC_REPOSITORY not defined!"
   else
-    restic --password-command "echo ${RESTIC_PASSWORD}" -r ${RESTIC_REPOSITORY}/$1 ${@:2}
+    # restic --password-command "echo ${RESTIC_PASSWORD}" -r ${RESTIC_REPOSITORY}/$1 ${@:2}
+    restic --password-command "echo ${RESTIC_PASSWORD}" -r ${RESTIC_REPOSITORY} $@
   fi
 }
 
