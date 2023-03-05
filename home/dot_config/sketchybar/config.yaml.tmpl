@@ -142,7 +142,7 @@ item:
   # The amount of charge remaining on the battery.
   battery:
     position: right
-  {{- if .attr.battery }}
+  {{- if or .attr.laptop (eq .type "macbook") (eq .type "macbookpro") }}
     enabled: true
   {{- else }}
     enabled: false
