@@ -6,7 +6,6 @@ echo "versions:" > {{ $f }}
   echo "  sketchybar: $(sketchybar --version)" >> {{ $f }}
   echo "  skhd: $(skhd --version)" >> {{ $f }}
   echo "  yabai: $(yabai --version)" >> {{ $f }}
-  echo "  spotifyd: $(spotifyd --version)" >> {{ $f }}
 {{- end }}
 echo "checksums:" >> {{ $f }}
   echo "  tmux: $(find {{ joinPath .chezmoi.homeDir ".tmux" | quote }} \
@@ -17,8 +16,6 @@ echo "checksums:" >> {{ $f }}
   echo "  skhd: $(find {{ joinPath .chezmoi.sourceDir "dot_config/skhd" | quote }} \
       -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
   echo "  yabai: $(find {{ joinPath .chezmoi.sourceDir "dot_config/yabai" | quote }} \
-      -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
-  echo "  spotifyd: $(find {{ joinPath .chezmoi.sourceDir "dot_config/spotifyd" | quote }} \
       -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
 {{- end }}
 
