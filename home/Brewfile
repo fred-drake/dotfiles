@@ -92,6 +92,8 @@ brew "gnupg"
 brew "go"
 # Fast linters runner for Go
 brew "golangci-lint"
+# GStreamer plugins (well-supported, basic set)
+brew "gst-plugins-base"
 # GStreamer plugins for Libav (a fork of FFmpeg)
 brew "gst-libav"
 # GStreamer plugins less supported, not fully tested
@@ -168,14 +170,10 @@ brew "python@3.9"
 brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Safe, concurrent, practical language
-brew "rust"
 # Editor of encrypted files
 brew "sops"
 # Terminal-based client for Spotify
 brew "spotify-tui"
-# Spotify daemon
-brew "spotifyd", restart_service: true
 # Test SSL/TLS enabled services to discover supported cipher suites
 brew "sslscan"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -210,6 +208,8 @@ brew "yarn"
 brew "yq"
 # Fork of youtube-dl with additional features and fixes
 brew "yt-dlp"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
@@ -254,6 +254,8 @@ cask "brave-browser"
 cask "cakebrew"
 # E-books management software
 cask "calibre"
+# C and C++ IDE
+cask "clion"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
@@ -277,6 +279,8 @@ cask "gog-galaxy"
 cask "goland"
 # Web browser
 cask "google-chrome"
+# Java IDE by JetBrains
+cask "intellij-idea"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Menu bar calendar
