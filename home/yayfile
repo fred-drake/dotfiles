@@ -3,12 +3,14 @@ brave-bin
 cura-appimage-bin
 fluxgui-git
 git-cola
+goland
 google-chrome
 hadolint
 hp-vendor-dkms-git
 insomnia
 junction
 libinput-gestures
+nvim-packer-git
 paru
 qomui
 rpi-imager
@@ -16,6 +18,7 @@ slack-desktop
 spotify-tui
 touche
 ttf-meslo-nerd-font-powerlevel10k
+visual-studio-code-bin
 wg_tool
 xflux
 yay
