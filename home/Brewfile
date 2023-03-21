@@ -26,6 +26,8 @@ brew "ansible"
 brew "yamllint"
 # Checks ansible playbooks for practices and behaviour
 brew "ansible-lint"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Interpreted, interactive, object-oriented programming language
@@ -46,6 +48,8 @@ brew "btop"
 brew "chezmoi"
 # Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle
 brew "clusterctl"
+# Cross-platform make
+brew "cmake"
 # Utility that creates projects from templates
 brew "cookiecutter"
 # Open source suite of directory software
@@ -68,6 +72,8 @@ brew "unbound"
 brew "gnutls"
 # Multi-format archive and compression library
 brew "libarchive"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
 # Secure Reliable Transport
 brew "srt"
 # OCR (Optical Character Recognition) engine
@@ -92,8 +98,6 @@ brew "gnupg"
 brew "go"
 # Fast linters runner for Go
 brew "golangci-lint"
-# GStreamer plugins (well-supported, basic set)
-brew "gst-plugins-base"
 # GStreamer plugins for Libav (a fork of FFmpeg)
 brew "gst-libav"
 # GStreamer plugins less supported, not fully tested
@@ -116,6 +120,8 @@ brew "hadolint"
 brew "helm"
 # Get events and tasks from the macOS calendar database
 brew "ical-buddy"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Utility for IPMI control with kernel driver or LAN interface
 brew "ipmitool"
 # Lightweight and flexible command-line JSON processor
@@ -128,6 +134,8 @@ brew "k3sup"
 brew "k9s"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Package manager for kubectl plugins
+brew "krew"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Kubernetes controller and tool for one-way encrypted Secrets
@@ -170,10 +178,14 @@ brew "python@3.9"
 brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# SDL2 graphics drawing primitives and other support functions
+brew "sdl2_gfx"
 # Editor of encrypted files
 brew "sops"
 # Terminal-based client for Spotify
 brew "spotify-tui"
+# Spotify daemon
+brew "spotifyd", restart_service: true
 # Test SSL/TLS enabled services to discover supported cipher suites
 brew "sslscan"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -262,6 +274,8 @@ cask "discord"
 cask "docker"
 # Draw.io is free online diagram software
 cask "drawio"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
 # Utility for customizing which browser to start
 cask "finicky"
 # Screen color temperature controller
@@ -279,6 +293,8 @@ cask "gog-galaxy"
 cask "goland"
 # Web browser
 cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
 # Java IDE by JetBrains
 cask "intellij-idea"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -297,6 +313,8 @@ cask "maestral"
 cask "meetingbar"
 # Visual diff and merge tool
 cask "meld"
+# Minimal installer for conda specific to conda-forge
+cask "miniforge"
 # Online collaborative whiteboard platform
 cask "miro"
 # GameStream client
