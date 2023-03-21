@@ -84,5 +84,7 @@ source $XDG_CONFIG_HOME/ohmyzsh/custom/lf-config.zsh
 
 eval "$(direnv hook zsh)"
 
+[[ ! -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] || source /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 # Put our personal bin ahead of everything else
 export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
