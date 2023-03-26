@@ -59,3 +59,10 @@ alias pbpaste='xclip -selection clipboard -o'
 alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
 alias l='exa -l --icons --git -a -r -t modified'
 alias lt='exa --tree --level=2 --long --icons --git'
+
+alias wg-up-split='wg-quick up $HOME/.config/wireguard/{{ .type }}/office-admin.conf'
+alias wg-down-split='wg-quick down $HOME/.config/wireguard/{{ .type }}/office-admin.conf'
+alias wg-up-full='wg-quick up $HOME/.config/wireguard/{{ .type }}/office-admin2.conf'
+alias wg-down-full='wg-quick down $HOME/.config/wireguard/{{ .type }}/office-admin2.conf'
+alias wg-up-pubdns='wg-quick up $HOME/.config/wireguard/{{ .type }}/office-admin3.conf'
+alias wg-down-pubdns='wg-quick down $HOME/.config/wireguard/{{ .type }}/office-admin3.conf'
