@@ -4,4 +4,7 @@ devone
 {{- if not (eq .type "macbookpro") }}
 macbookpro
 {{- end }}
+{{- if not (eq .type "studio") }}
+studio
+{{- end }}
 
