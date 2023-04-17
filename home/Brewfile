@@ -18,6 +18,8 @@ tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Simple, modern, secure file encryption
 brew "age"
 # Automate deployment, configuration, and upgrading
@@ -72,8 +74,6 @@ brew "unbound"
 brew "gnutls"
 # Multi-format archive and compression library
 brew "libarchive"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
 # Secure Reliable Transport
 brew "srt"
 # OCR (Optical Character Recognition) engine
@@ -96,18 +96,24 @@ brew "glib-networking"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # Fast linters runner for Go
 brew "golangci-lint"
-# GStreamer plugins for Libav (a fork of FFmpeg)
-brew "gst-libav"
-# GStreamer plugins less supported, not fully tested
-brew "gst-plugins-bad"
 # Toolkit for creating graphical user interfaces
 brew "gtk+3"
 # C library for the Public Suffix List
 brew "libpsl"
 # HTTP client/server library for GNOME
 brew "libsoup"
+# GNOME Python bindings (based on GObject Introspection)
+brew "pygobject3"
+# GStreamer plugins (well-supported, basic set)
+brew "gst-plugins-base"
+# GStreamer plugins for Libav (a fork of FFmpeg)
+brew "gst-libav"
+# GStreamer plugins less supported, not fully tested
+brew "gst-plugins-bad", link: false
 # GStreamer plugins (well-supported, under the LGPL)
 brew "gst-plugins-good"
 # Library for constructing graphs of media-handling components
@@ -118,6 +124,8 @@ brew "gtk-vnc"
 brew "hadolint"
 # Kubernetes package manager
 brew "helm"
+# Improved top (interactive process viewer)
+brew "htop"
 # Get events and tasks from the macOS calendar database
 brew "ical-buddy"
 # Tools and libraries to manipulate images in many formats
@@ -128,6 +136,8 @@ brew "ipmitool"
 brew "jq"
 # Implementation of JSON Schema for Python
 brew "jsonschema"
+# Interactive environments for writing and running code
+brew "jupyterlab"
 # Utility to create k3s clusters on any local or remote VM
 brew "k3sup"
 # Kubernetes CLI To Manage Your Clusters In Style!
@@ -150,6 +160,8 @@ brew "libpcap"
 brew "libvirt"
 # GNOME XML library
 brew "libxml2"
+# Next-gen compiler infrastructure
+brew "llvm@11"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Package manager for the Lua programming language
@@ -168,8 +180,6 @@ brew "nmap"
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
 brew "pyenv-virtualenv"
-# GNOME Python bindings (based on GObject Introspection)
-brew "pygobject3"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.8"
 # Interpreted, interactive, object-oriented programming language
@@ -178,6 +188,8 @@ brew "python@3.9"
 brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Utility that provides fast incremental file transfer
+brew "rsync"
 # SDL2 graphics drawing primitives and other support functions
 brew "sdl2_gfx"
 # Editor of encrypted files
@@ -268,6 +280,8 @@ cask "cakebrew"
 cask "calibre"
 # C and C++ IDE
 cask "clion"
+# Disk space visualizer
+cask "daisydisk"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
@@ -333,6 +347,8 @@ cask "paw"
 cask "plex"
 # Collaboration platform for API development
 cask "postman"
+# IDE for professional Python development
+cask "pycharm"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -386,9 +402,7 @@ mas "MacFamilyTree 9", id: 1458866808
 mas "MenubarClock", id: 492167985
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
-mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
-mas "Okta Verify", id: 490179405
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Reeder", id: 1449412482
@@ -400,4 +414,3 @@ mas "Valet Car Control", id: 1438609932
 mas "VMware Remote Console", id: 1230249825
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
-mas "Yoga Studio", id: 567767430
