@@ -93,3 +93,7 @@ export PATH="/Applications/DataSpell.app/Contents/MacOS:$PATH"
 
 # Put our personal bin ahead of everything else
 export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
+
+{{ if eq .chezmoi.os "darwin" -}}
+export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
+{{- end }}
