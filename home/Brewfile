@@ -16,10 +16,10 @@ tap "khanhas/tap"
 tap "koekeishiya/formulae"
 tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # OpenType text shaping engine
 brew "harfbuzz"
-# Library to render SVG files using Cairo
-brew "librsvg"
 # Simple, modern, secure file encryption
 brew "age"
 # Automate deployment, configuration, and upgrading
@@ -38,6 +38,8 @@ brew "python@3.10"
 brew "node@14"
 # Command-line tool for interacting with the balenaCloud and balena API
 brew "balena-cli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Platform built on V8 to build network applications
 brew "node"
 # Secure and free password manager for all of your devices
@@ -72,8 +74,12 @@ brew "exa"
 brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Image processing and image analysis library
+brew "leptonica"
 # Multi-format archive and compression library
 brew "libarchive"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
 # Secure Reliable Transport
 brew "srt"
 # OCR (Optical Character Recognition) engine
@@ -82,6 +88,8 @@ brew "tesseract"
 brew "ffmpeg"
 # Lint your Python code for style and logical errors
 brew "flake8"
+# Command-line outline and bitmap font editor/converter
+brew "fontforge"
 # Free Unix Spectrum Emulator
 brew "fuse-emulator"
 # Command-line fuzzy finder written in Go
@@ -98,20 +106,18 @@ brew "glib-networking"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
 # Fast linters runner for Go
 brew "golangci-lint"
 # Toolkit for creating graphical user interfaces
 brew "gtk+3"
+# Toolkit for creating graphical user interfaces
+brew "gtk4"
 # C library for the Public Suffix List
 brew "libpsl"
 # HTTP client/server library for GNOME
 brew "libsoup"
 # GNOME Python bindings (based on GObject Introspection)
 brew "pygobject3"
-# GStreamer plugins (well-supported, basic set)
-brew "gst-plugins-base"
 # GStreamer plugins for Libav (a fork of FFmpeg)
 brew "gst-libav"
 # GStreamer plugins less supported, not fully tested
@@ -226,6 +232,8 @@ brew "virt-manager"
 brew "watch"
 # Internet file retriever
 brew "wget"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
 # JavaScript package manager
@@ -268,6 +276,8 @@ cask "angry-ip-scanner"
 cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
+# Online gaming platform
+cask "battle-net"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Tool to customize input devices and automate computer systems
@@ -309,14 +319,10 @@ cask "goland"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
-# Java IDE by JetBrains
-cask "intellij-idea"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Menu bar calendar
 cask "itsycal"
-# GPU-based terminal emulator
-cask "kitty"
 # Open-source Markdown editor
 cask "macdown"
 # File system integration
@@ -337,6 +343,8 @@ cask "moonlight"
 cask "numi"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Open source build of Lens Kubernetes IDE
+cask "openlens"
 # Play PC games and connect with your friends
 cask "origin"
 # HTTP client that helps testing and describing APIs
@@ -407,8 +415,6 @@ mas "Reeder", id: 1449412482
 mas "RunCat", id: 1429033973
 mas "Slack", id: 803453959
 mas "Trello", id: 1278508951
-mas "UTM", id: 1538878817
 mas "Valet Car Control", id: 1438609932
 mas "VMware Remote Console", id: 1230249825
-mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
