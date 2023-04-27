@@ -343,8 +343,6 @@ cask "moonlight"
 cask "numi"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Open source build of Lens Kubernetes IDE
-cask "openlens"
 # Play PC games and connect with your friends
 cask "origin"
 # HTTP client that helps testing and describing APIs
