@@ -110,9 +110,9 @@ item:
           - icon.padding_right=5
           - icon.color="0xff996666"
         PRO X Wireless Gaming Headset:
-          - icon=
+          - icon=󰋎
         NexiGo N60 FHD Webcam:
-          - icon=犯
+          - icon=󰖠
       output:
         defaults:
           - update_freq=60
@@ -125,9 +125,9 @@ item:
           - icon.padding_right=5
           - icon.color="0xff669966"
         PRO X Wireless Gaming Headset:
-          - icon=
+          - icon=󰋎
         External Headphones:
-          - icon=蓼
+          - icon=󰓃
       separator:
         - icon="|" 
         - icon.font="{{ $default_symbol_font_smaller }}"
@@ -148,20 +148,20 @@ item:
     enabled: false
   {{- end }}
     args:
-      - icon=
+      - icon=?
       - update_freq=3
     icon:
-      charging:   
-      batt_100: 
-      batt_90: 
-      batt_80: 
-      batt_70: 
-      batt_60: 
-      batt_50: 
-      batt_40: 
-      batt_30: 
-      batt_20: 
-      batt_10: 
+      charging: 󰂄
+      batt_100: 󰁹
+      batt_90: 󰂂
+      batt_80: 󰂁
+      batt_70: 󰂀
+      batt_60: 󰁿
+      batt_50: 󰁾
+      batt_40: 󰁽
+      batt_30: 󰁼
+      batt_20: 󰁻
+      batt_10: 󰁺
 
   # Brew packages available for update
   brew:
@@ -184,7 +184,7 @@ item:
         - background.padding_right=10
         - update_freq=3600
       no_updates:
-        - label=
+        - label=
         - label.font={{ $default_symbol_font | quote }}
         - label.color={{ $green }}
       updates_available:
@@ -203,7 +203,7 @@ item:
     position: left
     args:
       front_app:
-        - icon=﩯
+        - icon=
         - icon.color={{ $orange }}
         - icon.drawing=on
         - background.padding_left=10
@@ -401,7 +401,7 @@ item:
             - color=0xff000033
             - icon.font={{ $default_symbol_font | quote }}
           webex:
-            - icon=
+            - icon=W
             - icon.color=0xff0000ff
             - icon.font={{ $default_symbol_font | quote }}
           zoom:
@@ -433,7 +433,7 @@ item:
             - label.drawing=on
             - icon.font={{ $default_symbol_font | quote }}
           webex:
-            - icon=
+            - icon=W
             - icon.color=0xff0000ff
             - icon.drawing=on
             - label.drawing=on
@@ -478,17 +478,17 @@ item:
     # Use ${UP} for services that are currently up, ${DOWN} for down services, and ${TOTAL} for total services
     label_format:
   {{- if .attr.laptop }}
-      up: ""
+      up: ""
       down: "${UP} / ${TOTAL}"
   {{- else }}
-      up: ""
+      up: ""
       down: "Uptime Kuma: ${UP} / ${TOTAL}"
   {{- end }}
     args:
       uptime_kuma:
         - click_script="open -a Finicky https://uptime-kuma.internal.freddrake.com"
         - associated_display=1,2
-        - icon=歷
+        - icon=󰒍
         - icon.color={{ $white }}
         - icon.font={{ $default_symbol_font | quote }}
         - label=Uptime Kuma
@@ -496,12 +496,12 @@ item:
         - update_freq=30
         - updates=on
       uptime_kuma_up:
-        - icon=歷
+        - icon=󰒍
         - icon.color={{ $white }}
         - label.color={{ $green }}
         - label.font={{ $default_symbol_font | quote }}
       uptime_kuma_down:
-        - icon.symbol=轢
+        - icon.symbol=󰒎
         - icon.color={{ $red }}
         - label.color={{ $red }}
       bracket:
@@ -649,11 +649,11 @@ item:
         - update_freq=5
         - click_script="open /System/Library/PreferencePanes/Network.prefPane/"
       wifi_up:
-        - icon=直
+        - icon=󰖩
         - icon.color={{ $white }}
         - label.drawing=on
       wifi_down:
-        - icon=睊
+        - icon=󰖪
         - icon.color={{ $orange }}
         - label.drawing=off
       bracket:
