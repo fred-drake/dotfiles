@@ -3,5 +3,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 # Hash version {{ $versions.versions.yabai | sha256sum }}
 # Hash directory {{ $versions.checksums.yabai }}
-brew services restart yabai
+echo "Restarting yabai service..."
+yabai --restart-service
 {{- end }}

@@ -3,5 +3,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 # Hash version {{ $versions.versions.skhd | sha256sum }}
 # Hash directory {{ $versions.checksums.skhd }}
-brew services restart skhd
+echo "Restarting skhd service..."
+skhd --restart-service
 {{- end }}
