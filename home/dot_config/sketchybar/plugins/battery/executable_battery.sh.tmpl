@@ -10,9 +10,22 @@ RED_DEC=$[ 255 - $GREEN_DEC ]
 COLOR="0xff$(printf '%02x\n' $RED_DEC)$(printf '%02x\n' $GREEN_DEC)33"
 
 if [[ $CHARGING != "" ]]; then
+  case ${BATT_PERCENT} in
+    100) ICON="{{ $config.item.battery.icon.charging_batt_100 }}" ;;
+      9[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_90 }}" ;;
+      8[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_80 }}" ;;
+      7[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_70 }}" ;;
+      6[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_60 }}" ;;
+      5[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_50 }}" ;;
+      4[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_40 }}" ;;
+      3[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_30 }}" ;;
+      2[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_20 }}" ;;
+      1[0-9]) ICON="{{ $config.item.battery.icon.charging_batt_10 }}" ;;
+      *) ICON="{{ $config.item.battery.icon.charging_batt_10 }}"
+  esac
   sketchybar -m --set battery \
     icon.color=$COLOR \
-    icon= \
+    icon=$ICON \
     label=$(printf "${BATT_PERCENT}%%")
   exit 0
 fi
