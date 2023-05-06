@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Running chezmoi update..."
+chezmoi update --force
+echo "Updating tmux plugins..."
+~/.tmux/plugins/tpm/bin/update_plugins all
+{{- if eq .chezmoi.os "darwin" }}
+echo "Updating all brew recipes..."
+brew upgrade --greedy
+{{- else }}
+echo "Updating pacman..."
+sudo pacman -Syy
+{{- end }}
