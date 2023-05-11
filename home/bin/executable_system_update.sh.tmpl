@@ -6,6 +6,7 @@ echo "Updating tmux plugins..."
 {{- if eq .chezmoi.os "darwin" }}
 echo "Updating all brew recipes..."
 brew upgrade --greedy
+sketchybar --trigger brew_update
 {{- else }}
 echo "Updating pacman..."
 sudo pacman -Syy
