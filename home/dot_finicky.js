@@ -9,10 +9,6 @@ module.exports = {
       browser: "Google Chrome",
     },
     {
-      match: /miro.com/,
-      browser: "Miro",
-    },
-    {
       match: /meet.google.com/,
       browser: "Google Chrome",
     },
