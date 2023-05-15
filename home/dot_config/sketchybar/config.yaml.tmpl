@@ -734,14 +734,22 @@ item:
           label:
             - background.padding_right=21
           timestamp:
+{{- if eq .type "studio" }}
+            - label.padding_right=20
+{{- else }}
             - label.padding_right=30
+{{- end }}
       - label: Nigeria
         tz: Africa/Lagos
         args:
           label:
             - background.padding_right=40
           timestamp:
+{{- if eq .type "studio" }}
+            - label.padding_right=40
+{{- else }}
             - label.padding_right=50
+{{- end }}
     args:
       worldtime_label:
         - label.font="Hack Nerd Font Mono:Bold:8"
