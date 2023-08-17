@@ -15,3 +15,6 @@ vim.keymap.set(
   { desc = "Debug - Set Conditional Breakpoint" }
 )
 vim.keymap.set("n", "<leader>cR", ":lua require'dap'.repl.open()<CR>", { desc = "Debug - Repl Open" })
+vim.keymap.set("n", "<leader>o", "", { desc = "+SOPS" })
+vim.keymap.set("n", "<leader>od", "<cmd>!sops -d -i %<CR><CR>", { desc = "Decrypt SOPS File" })
+vim.keymap.set("n", "<leader>oe", "<cmd>!sops -e -i %<CR><CR>", { desc = "Encrypt SOPS File" })
