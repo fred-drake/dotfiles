@@ -50,7 +50,7 @@ rstc_k8s() {
   elif [[ -z "${RESTIC_PASSWORD}" ]]; then
     echo "RESTIC_PASSWORD not defined!"
   else
-    restic --password-command "echo ${RESTIC_PASSWORD}" -r s3:https://minio-backup.internal.freddrake.com/$1 ${@:2}
+    restic --password-command "echo ${RESTIC_PASSWORD}" -r ${RESTIC_REPOSITORY}/$1 ${@:2}
   fi
 }
 
