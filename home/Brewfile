@@ -6,9 +6,7 @@ tap "epk/epk"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "hudochenkov/sshpass"
 tap "juicedata/tap"
@@ -32,16 +30,12 @@ brew "ansible-lint"
 brew "asdf"
 # Official Amazon AWS command-line interface
 brew "awscli"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Platform built on V8 to build network applications
-brew "node@14"
+brew "node"
 # Command-line tool for interacting with the balenaCloud and balena API
 brew "balena-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Platform built on V8 to build network applications
-brew "node"
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
 # GNU compiler collection
@@ -68,6 +62,8 @@ brew "delve"
 brew "deno"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Modern replacement for 'ls'
 brew "exa"
 # Validating, recursive, caching DNS resolver
@@ -118,14 +114,8 @@ brew "libpsl"
 brew "libsoup"
 # GNOME Python bindings (based on GObject Introspection)
 brew "pygobject3"
-# GStreamer plugins for Libav (a fork of FFmpeg)
-brew "gst-libav"
-# GStreamer plugins less supported, not fully tested
-brew "gst-plugins-bad", link: false
-# GStreamer plugins (well-supported, under the LGPL)
-brew "gst-plugins-good"
-# Library for constructing graphs of media-handling components
-brew "gst-plugins-ugly"
+# Development framework for multimedia applications
+brew "gstreamer"
 # VNC viewer widget for GTK
 brew "gtk-vnc"
 # Smarter Dockerfile linter to validate best practices
@@ -184,6 +174,10 @@ brew "neofetch"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Platform built on V8 to build network applications
+brew "node@14"
 # Python version management
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
@@ -212,6 +206,8 @@ brew "sslscan"
 brew "stow"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
+# Open source continuous file synchronization application
+brew "syncthing"
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure
@@ -228,6 +224,8 @@ brew "tree"
 brew "vte3"
 # App for managing virtual machines
 brew "virt-manager"
+# Sends magic packets to wake up network-devices
+brew "wakeonlan"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
@@ -246,8 +244,6 @@ brew "yt-dlp"
 brew "zellij"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws/tap/aws-sam-cli"
 # Square-sized SF Mono + Japanese fonts + nerd-fonts
 brew "delphinus/sfmono-square/sfmono-square"
 # Custom macOS statusbar with shell plugin, interaction and graph support
@@ -268,14 +264,14 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
-# Enable Windows-like alt-tab
-cask "alt-tab"
 # Network scanner
 cask "angry-ip-scanner"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
+# Online gaming platform
+cask "battle-net"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Tool to customize input devices and automate computer systems
@@ -292,8 +288,6 @@ cask "clion"
 cask "daisydisk"
 # Voice and text chat software
 cask "discord"
-# App to build and share containerized applications and microservices
-cask "docker"
 # Online diagram software
 cask "drawio"
 # Client for the Dropbox cloud storage service
@@ -351,12 +345,16 @@ cask "plex"
 cask "postman"
 # IDE for professional Python development
 cask "pycharm"
+# Archive manager for data compression and backups
+cask "rar"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# Team communication and collaboration software
+cask "slack"
 # Graphical client for Git version control
 cask "sourcetree"
 # Music streaming service
@@ -412,3 +410,24 @@ mas "Trello", id: 1278508951
 mas "Valet Car Control", id: 1438609932
 mas "VMware Remote Console", id: 1230249825
 mas "Xcode", id: 497799835
+vscode "DavidAnson.vscode-markdownlint"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-rename-tag"
+vscode "golang.go"
+vscode "kamikillerto.vscode-colorize"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.remote-explorer"
+vscode "rokoroku.vscode-theme-darcula"
+vscode "rust-lang.rust-analyzer"
+vscode "rvest.vs-code-prettier-eslint"
+vscode "signageos.signageos-vscode-sops"
+vscode "signageos.signageos-vscode-sops-beta"
+vscode "vscode-icons-team.vscode-icons"
+vscode "wayou.vscode-todo-highlight"
+vscode "yzhang.markdown-all-in-one"
