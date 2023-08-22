@@ -57,6 +57,10 @@ module.exports = {
       browser: "Google Chrome",
     },
     {
+      match: /miro.com/,
+      browser: "Google Chrome",
+    },
+    {
       match: /ro.am/,
       browser: "Google Chrome",
     },
