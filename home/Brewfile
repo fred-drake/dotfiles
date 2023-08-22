@@ -270,8 +270,6 @@ cask "angry-ip-scanner"
 cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
-# Online gaming platform
-cask "battle-net"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Tool to customize input devices and automate computer systems
