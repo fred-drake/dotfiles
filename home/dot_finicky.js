@@ -85,5 +85,5 @@ module.exports = {
       browser: "Safari",
     },
   ],
-  defaultBrowser: "Brave Browser",
+  defaultBrowser: "Safari",
 };
