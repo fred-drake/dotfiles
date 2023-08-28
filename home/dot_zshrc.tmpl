@@ -86,6 +86,8 @@ eval "$(direnv hook zsh)"
 
 [[ ! -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] || source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+export OPENAI_API_KEY=`cat $HOME/.openai-key`
+
 # Add Jetbrains products to Path
 {{ if eq .chezmoi.os "darwin" -}}
 export PATH="/Applications/DataSpell.app/Contents/MacOS:$PATH"
