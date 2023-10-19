@@ -14,10 +14,10 @@ tap "khanhas/tap"
 tap "koekeishiya/formulae"
 tap "romkatv/powerlevel10k"
 tap "siderolabs/talos"
-# Toolkit for image loading and pixel buffer manipulation
-brew "gdk-pixbuf"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Simple, modern, secure file encryption
 brew "age"
 # Automate deployment, configuration, and upgrading
@@ -63,19 +63,15 @@ brew "deno"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Pack, ship and run any application as a lightweight container
-brew "docker"
+brew "docker", link: false
 # Modern replacement for 'ls'
 brew "exa"
 # Validating, recursive, caching DNS resolver
 brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# Image processing and image analysis library
-brew "leptonica"
 # Multi-format archive and compression library
 brew "libarchive"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
 # Secure Reliable Transport
 brew "srt"
 # OCR (Optical Character Recognition) engine
@@ -84,8 +80,6 @@ brew "tesseract"
 brew "ffmpeg"
 # Lint your Python code for style and logical errors
 brew "flake8"
-# Command-line outline and bitmap font editor/converter
-brew "fontforge"
 # Free Unix Spectrum Emulator
 brew "fuse-emulator"
 # Command-line fuzzy finder written in Go
@@ -102,6 +96,8 @@ brew "glib-networking"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # Fast linters runner for Go
 brew "golangci-lint"
 # Toolkit for creating graphical user interfaces
@@ -178,6 +174,8 @@ brew "nmap"
 brew "python@3.10"
 # Platform built on V8 to build network applications
 brew "node@14"
+# Theme for zsh
+brew "powerlevel10k"
 # Python version management
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
@@ -207,7 +205,7 @@ brew "stow"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
 # Open source continuous file synchronization application
-brew "syncthing"
+brew "syncthing", restart_service: true
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure
@@ -250,6 +248,7 @@ brew "delphinus/sfmono-square/sfmono-square"
 brew "felixkratz/formulae/sketchybar"
 # Packer
 brew "hashicorp/tap/packer"
+brew "hudochenkov/sshpass/sshpass"
 # JuiceFS is a distributed POSIX file system built on top of Redis and S3
 brew "juicedata/tap/juicefs"
 # Command-line tool to customize Spotify client
@@ -258,12 +257,14 @@ brew "khanhas/tap/spicetify-cli"
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
-# A Zsh Theme
-brew "romkatv/powerlevel10k/powerlevel10k"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Web browser
+cask "alex313031-thorium"
 # Application launcher and productivity software
 cask "alfred"
+# Enable Windows-like alt-tab
+cask "alt-tab"
 # Network scanner
 cask "angry-ip-scanner"
 # Tool to flash OS images to SD cards & USB drives
@@ -286,6 +287,8 @@ cask "clion"
 cask "daisydisk"
 # Voice and text chat software
 cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Online diagram software
 cask "drawio"
 # Client for the Dropbox cloud storage service
@@ -349,6 +352,8 @@ cask "rar"
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Rust IDE
+cask "rustrover"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Team communication and collaboration software
@@ -377,7 +382,7 @@ cask "visual-studio-code"
 cask "vlc"
 # Remote desktop application focusing on security
 cask "vnc-viewer"
-# Desktop client for WhatsApp
+# Native desktop client for WhatsApp
 cask "whatsapp"
 # Compatibility layer to run Windows applications
 cask "wine-stable"
