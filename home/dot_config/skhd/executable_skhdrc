@@ -115,7 +115,6 @@ alt - b : ~/.config/skhd/focus-window.sh "Brave Browser" "/Applications/Brave Br
 alt - c : ~/.config/skhd/focus-window.sh "Thorium" "/Applications/Thorium.app/"
 alt - d : ~/.config/skhd/focus-window.sh "Discord" "/Applications/Discord.app/"
 alt - e : ~/.config/skhd/focus-window.sh "Code" "/Applications/Visual Studio Code.app/"
-alt - i : ~/.config/skhd/focus-window.sh "Bitwarden" "/Applications/Bitwarden.app/"
 alt - g : ~/.config/skhd/focus-window.sh "Messages" "/Applications/Messages.app/"
 alt - o : ~/.config/skhd/focus-window.sh "Obsidian" "/Applications/Obsidian.app/"
 alt - s : ~/.config/skhd/focus-window.sh "Slack" "/Applications/Slack.app/"
