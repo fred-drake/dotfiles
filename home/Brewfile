@@ -244,8 +244,6 @@ brew "zellij"
 brew "zoxide"
 # Square-sized SF Mono + Japanese fonts + nerd-fonts
 brew "delphinus/sfmono-square/sfmono-square"
-# Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
 # Packer
 brew "hashicorp/tap/packer"
 brew "hudochenkov/sshpass/sshpass"
@@ -255,8 +253,6 @@ brew "juicedata/tap/juicefs"
 brew "khanhas/tap/spicetify-cli"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Web browser
@@ -291,8 +287,6 @@ cask "discord"
 cask "docker"
 # Online diagram software
 cask "drawio"
-# Client for the Dropbox cloud storage service
-cask "dropbox"
 # Utility for customizing which browser to start
 cask "finicky"
 # Screen color temperature controller

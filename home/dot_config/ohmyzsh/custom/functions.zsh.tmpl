@@ -1,14 +1,3 @@
-{{- if eq .chezmoi.os "darwin" }}
-# Sketchybar interactivity overloads
-function brew() {
-  command brew "$@" 
-
-  if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
-    sketchybar --trigger brew_update
-  fi
-}
-{{- end }}
-
 # Encrypt a file with AGE
 agee() {
   age -e -o "$2 " -i ~/.age/personal-key.txt -r age1ffag60kk9es84dk2yg7ppax6ygmg7a34hpve86d8w8l40k4fj3tq2zqxjg "$1"

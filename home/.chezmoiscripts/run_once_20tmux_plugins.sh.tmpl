@@ -1,7 +1,0 @@
-{{- $versions := joinPath .chezmoi.sourceDir "versions.yaml" | include | fromYaml -}}
-{{- $tpm_dir := joinPath .chezmoi.homeDir ".tmux/plugins/tpm" -}}
-#!/bin/bash
-# Hash directory {{ $versions.checksums.tmux }}
-echo "Installing Tmux Plugins..."
-TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins {{ $tpm_dir }}/scripts/install_plugins.sh
-

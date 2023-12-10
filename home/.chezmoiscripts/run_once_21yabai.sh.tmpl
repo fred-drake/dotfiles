@@ -1,8 +1,0 @@
-{{- $versions := joinPath .chezmoi.sourceDir "versions.yaml" | include | fromYaml -}}
-#!/bin/bash
-{{- if eq .chezmoi.os "darwin" }}
-# Hash version {{ $versions.versions.yabai | sha256sum }}
-# Hash directory {{ $versions.checksums.yabai }}
-echo "Restarting yabai service..."
-yabai --restart-service
-{{- end }}
