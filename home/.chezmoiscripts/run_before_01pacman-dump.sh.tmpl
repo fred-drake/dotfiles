@@ -1,8 +1,0 @@
-{{- if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-  {{- $pacfile := joinPath .chezmoi.sourceDir "pacfile" -}}
-  {{- if not (stat $pacfile) }}
-echo "Dumping pacman packages to pacfile..."
-pacman -Qqen > {{ $pacfile }}
-  {{- end }}
-{{- end }}

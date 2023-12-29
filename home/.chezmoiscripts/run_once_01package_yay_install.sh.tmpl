@@ -1,8 +1,0 @@
-{{- if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-  {{- $yayfile := joinPath .chezmoi.sourceDir "yayfile" }}
-  {{- if stat $yayfile }}
-# Hash Yayfile {{ include $yayfile | sha256sum }}
-  {{- end }}
-yay --noconfirm -S $(cat {{ $yayfile }})
-{{- end }}

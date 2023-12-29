@@ -1,6 +1,0 @@
-{{- $tpm_dir := joinPath .chezmoi.homeDir ".tmux/plugins/tpm" -}}
-{{- if (not (stat $tpm_dir)) -}}
-#!/bin/bash
-git clone https://github.com/tmux-plugins/tpm {{ $tpm_dir }}
-{{- end }}
-

@@ -1,8 +1,0 @@
-{{- if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
-  {{- $brewfile := joinPath .chezmoi.sourceDir "Brewfile" -}}
-  {{- if (not (stat $brewfile)) }}
-echo "Dumping to Brewfile..."
-brew bundle dump --describe --file {{ $brewfile }} --force
-  {{- end }}
-{{- end }}

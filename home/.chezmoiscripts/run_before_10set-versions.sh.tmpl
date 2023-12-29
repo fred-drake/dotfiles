@@ -1,7 +1,0 @@
-{{- /* Create versions yaml file dumping versions that we will check for later */ -}}
-{{- $f := joinPath .chezmoi.sourceDir "versions.yaml" -}}
-#!/bin/bash
-echo "checksums:" >> {{ $f }}
-  echo "  tmux: $(find {{ joinPath .chezmoi.homeDir ".tmux" | quote }} \
-      -type f -exec sha256sum {} + | LC_ALL=C sort | sha256sum | awk '{ printf $1 }')" >> {{ $f }}
-
