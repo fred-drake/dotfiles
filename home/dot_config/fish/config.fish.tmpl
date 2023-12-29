@@ -10,6 +10,9 @@ set -gx SUDO_EDITOR $SUDO_EDITOR
 
 set -gx fisher_path ~/.local/share/chezmoi/home/dot_config/fish
 
+{{- if eq .chezmoi.os "darwin" }}
+fish_add_path /opt/homebrew/bin
+{{- end }}
 fish_add_path $HOME/bin
 
 set -gx GHQ_ROOT $HOME/Source
