@@ -46,7 +46,7 @@ if status is-interactive
 end
 
 {{- if eq .chezmoi.os "darwin" }}
-source "(brew --prefix asdf)"/libexec/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
 {{- else }}
 source /opt/asdf-vm/asdf.fish
 {{- end }}
