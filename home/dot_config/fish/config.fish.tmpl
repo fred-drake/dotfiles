@@ -11,7 +11,7 @@ set -gx SUDO_EDITOR $SUDO_EDITOR
 set -gx fisher_path ~/.local/share/chezmoi/home/dot_config/fish
 
 {{- if eq .chezmoi.os "darwin" }}
-fish_add_path /opt/homebrew/bin
+fish_add_path (brew --prefix)/bin
 {{- end }}
 fish_add_path $HOME/bin
 
@@ -44,5 +44,11 @@ abbr vim nvim
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+{{- if eq .chezmoi.os "darwin" }}
+source "(brew --prefix asdf)"/libexec/asdf.fish
+{{- else }}
+source /opt/asdf-vm/asdf.fish
+{{- end }}
 
 direnv hook fish | source
