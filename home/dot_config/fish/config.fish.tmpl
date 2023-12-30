@@ -57,7 +57,7 @@ abbr main tmux new-session -A -s main
 abbr vi nvim
 abbr vim nvim
 
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.os.osRelease.id "arch") }}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 # pacman and yay
 abbr pacsyu 'sudo pacman -Syu'                  # update only standard pkgs
 abbr pacsyyu 'sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
