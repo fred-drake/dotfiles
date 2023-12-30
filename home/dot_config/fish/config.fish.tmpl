@@ -29,6 +29,16 @@ function fish_user_key_bindings
     bind -M insert -m default jk backward-char force-repaint
 end
 
+{{- if eq .chezmoi.os "darwin" }}
+# Set specific prompt scheme for Apple devices
+set -gx tide_os_icon 
+set -gx tide_os_color 000000
+set -gx tide_os_bg_color F9F6EF
+set -gx tide_pwd_bg_color A3AAAE
+set -gx tide_pwd_color_dirs 555555
+set -gx tide_pwd_color_anchors 000000
+{{- end }}
+
 # Files & Directories
 abbr mv "mv -iv"
 abbr cp "cp -riv"
