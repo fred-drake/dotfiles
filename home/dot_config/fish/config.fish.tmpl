@@ -51,13 +51,16 @@ abbr l ll
 abbr ncdu "ncdu --color dark"
 abbr lg lazygit
 abbr gg lazygit
+abbr cdsrc cd ~/Source/github.com/fred-drake/
 
 # Utilities
 abbr cm chezmoi
+abbr cma chezmoi apply --force
 abbr main tmux new-session -A -s main
 abbr vi nvim
 abbr vim nvim
 abbr k kubectl
+abbr fzf fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 # pacman and yay
@@ -83,6 +86,12 @@ abbr fgrep 'fgrep --color=auto'
 # adding flags
 abbr df 'df -h'                          # human-readable sizes
 abbr free 'free -m'                      # show sizes in MB
+
+# Function to CD into a dir via fzf
+function cdf
+  set CDDIR (find . -type d ! -path "./.git/*" ! -path "./.direnv/*" -print | fzf --preview 'eza --color=always --icons --group-directories-first --all --long {}')
+  cd "$CDDIR"
+end
 
 # Function for printing a column (splits input on whitespace)
 # ex: echo 1 2 3 | coln 3
