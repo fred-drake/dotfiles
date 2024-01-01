@@ -46,7 +46,7 @@ abbr mkdir "mkdir -vp"
 alias ls "eza --color=always --icons --group-directories-first"
 alias la 'eza --color=always --icons --group-directories-first --all'
 alias ll 'eza --color=always --icons --group-directories-first --all --long'
-alias lart 'eza --color=always --icons --all --long --sort modified --reverse'
+alias lart 'eza --color=always --icons --all --long --sort modified'
 abbr l ll
 abbr ncdu "ncdu --color dark"
 abbr lg lazygit
@@ -60,7 +60,7 @@ abbr main tmux new-session -A -s main
 abbr vi nvim
 abbr vim nvim
 abbr k kubectl
-abbr fzf fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'
+abbr fzf "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 # pacman and yay
@@ -93,7 +93,30 @@ function cdf
   cd "$CDDIR"
 end
 
-# Function for printing a column (splits input on whitespace)
+# Moves to a Tmux session, or creates the session if it doesn't exist.
+# Uses fzf to fuzzy find existing sessions
+function m --argument sess
+  if test -z "$sess"
+    set SESSION (tmux list-sessions -F "#S" | fzf --prompt="Switch session: ")
+  else
+    set SESSION (tmux list-sessions -F "#S" | grep $sess | fzf -0 -1 --prompt="Switch session: ")
+    if ! test -n "$SESSION"
+      tmux new -s "$sess" -d
+      set SESSION "$sess"
+    end
+  end
+
+  if [ -n "$TMUX" ]
+  	tmux switch-client -t "$SESSION"
+  else
+  	tmux attach-session -t "$SESSION"
+  end
+end
+
+# Kill current sesion that you're in
+abbr muxk tmux kill-session
+
+
 # ex: echo 1 2 3 | coln 3
 # output: 3
 function coln
