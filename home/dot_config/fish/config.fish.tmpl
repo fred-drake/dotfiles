@@ -39,6 +39,11 @@ set -gx tide_pwd_color_dirs 555555
 set -gx tide_pwd_color_anchors 000000
 {{- end }}
 
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
+# Locale needs to be set for arch dev system
+export LC_ALL="C.UTF-8"
+{{- end }}
+
 # Files & Directories
 abbr mv "mv -iv"
 abbr cp "cp -riv"
@@ -93,6 +98,7 @@ function cdf
   cd "$CDDIR"
 end
 
+{{- if eq .chezmoi.os "darwin" }}
 # Moves to a Tmux session, or creates the session if it doesn't exist.
 # Uses fzf to fuzzy find existing sessions
 function m --argument sess
@@ -115,6 +121,11 @@ end
 
 # Kill current sesion that you're in
 abbr muxk tmux kill-session
+{{- else }}
+# These are only for front end systems
+alias m 'echo "Not supported on this machine.  Exit out to your front end."'
+alias muxk 'echo "Not supported on this machine.  Exit out to your front end."'
+{{- end }}
 
 
 # ex: echo 1 2 3 | coln 3
