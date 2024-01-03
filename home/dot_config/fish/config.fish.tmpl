@@ -144,16 +144,8 @@ function rown --argument index
     sed -n "$index p"
 end
 
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
-# Initialize asdf based on OS type
-{{- if eq .chezmoi.os "darwin" }}
-source (brew --prefix asdf)/libexec/asdf.fish
-{{- else }}
-source /opt/asdf-vm/asdf.fish
-{{- end }}
 
 direnv hook fish | source
