@@ -6,63 +6,63 @@ module.exports = {
     },
     {
       match: /theoremco.slack.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /meet.google.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /docs.google.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /calendar.google.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /notion.so\/theoremone/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /theoremone.okta.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /theoremone.namely.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /theoremco.atlassian.net/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /abacus.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /officevibe.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /hire.lever.co/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /linktr.ee\/TheoremOneTA/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /theoremone.*?/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /miro.com/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /ro.am/,
-      browser: "Brave Browser",
+      browser: "Google Chrome",
     },
     {
       match: /apple.com/,
