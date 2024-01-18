@@ -67,6 +67,9 @@ abbr vi nvim
 abbr vim nvim
 abbr k kubectl
 abbr fzf "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+{{- if eq .chezmoi.os "darwin" }}
+alias flushdns 'sudo killall -HUP mDNSResponder'
+{{- end }}
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 # pacman and yay
